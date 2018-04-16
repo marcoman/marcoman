@@ -1,0 +1,6 @@
+aws ec2 run-instances --image-id ami-4e79ed36 \
+--count 1 \
+--instance-type t2.micro \
+--key-name marco-key-pair \
+--security-groups default \
+--block-device-mappings file://mapping.json
