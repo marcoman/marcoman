@@ -1,0 +1,33 @@
+{
+    "ImageId": "ami-013be31976ca2c322",
+    "InstanceType": "t2.micro",
+    "Monitoring": {
+        "Enabled": true
+    },
+    "SecurityGroups": [
+        "default"
+    ],
+    "DisableApiTermination": false,
+    "DryRun": false,
+	"KeyName": "bosh", 
+
+    "TagSpecifications": [
+        {
+            "ResourceType": "instance",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "aws2"
+                },
+                {
+                    "Key": "owner",
+                    "Value": "marco"
+                },
+                {
+                    "Key": "comment",
+                    "Value": "python"
+                }
+            ]
+        }
+    ]
+}
