@@ -1,3 +1,19 @@
+# I use this script with the code from https://github.com/khoubyari/spring-boot-rest-example.git .
+# The aforementioned project lets me run a spring-boot application with a REST interface visible via swagger pages at:
+#
+# http://localhost:8090/swagger-ui.html
+#
+# As my initial python-for-REST test and experimentation script, I worked through the different REST operations of GET, POST, DELETE, GET, PUT.
+# I worked through straight invocations to function calls.  I next added parameterization.
+
+# TODO and wish list
+# Let's run this from a command-line, with parameters fed into it. Something like this:
+# hotels.py --delete _json.file_
+# hotels.py --put --id 1 --city Nameofcity --description "my favorite description" --name "name of hotel" --rating newrating
+# hotels.py --getall
+# hotels.py 
+
+
 import requests
 import json
 from botocore.client import ClientError
@@ -84,7 +100,7 @@ def put (url, id) :
     return
     
 print ("total count is: " + str(getcount(myUrl)))
-#prettyprint (post (myUrl, myJson, myHeaders))
+prettyprint (post (myUrl, myJson, myHeaders))
 prettyprint (getall (myUrl))
 prettyprint (get (myUrl, 1))
 put (myUrl, 1)
