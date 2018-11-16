@@ -16,6 +16,9 @@
 
 import requests
 import json
+import sys
+import getopt
+
 from botocore.client import ClientError
 
 myUrl     = "http://localhost:8090/example/v1/hotels"
@@ -98,16 +101,38 @@ def put (url, id) :
         print ("Failed!")
     
     return
-    
-print ("total count is: " + str(getcount(myUrl)))
-prettyprint (post (myUrl, myJson, myHeaders))
-prettyprint (getall (myUrl))
-prettyprint (get (myUrl, 1))
-put (myUrl, 1)
-reportall(myUrl)
 
-#prettyprint (getall (myUrl))
 
-#prettyprint (delete (myUrl, 1))
+def main(argv):
+    print ("ARGV: ", sys.argv[1:])
+    opts, args = getopt.getopt(sys.argv[1:],"h",["get","post","delete","put"])
+    print ("OPTIONS", opts)
+    for opt,arg in opts:
+        if opt == "-h" :
+            print ("run with parameters")
+            sys.exit()
+        elif opt == "get" :
+            print ("get")
+        elif opt == "post" :
+            print ("post")
+        elif opt == "delete" :
+            print ("delete")
+        elif opt == "put" :
+            print ("put")
+      
+    print ("total count is: " + str(getcount(myUrl)))
+    prettyprint (post (myUrl, myJson, myHeaders))
+    prettyprint (getall (myUrl))
+    prettyprint (get (myUrl, 1))
+    put (myUrl, 1)
+    reportall(myUrl)
 
-#prettyprint (getall (myUrl))
+    #prettyprint (getall (myUrl))
+
+    #prettyprint (delete (myUrl, 1))
+
+    #prettyprint (getall (myUrl))
+
+
+if __name__ == "__main__":
+    main(sys.argv)
