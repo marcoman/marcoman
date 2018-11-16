@@ -52,18 +52,42 @@ def getall (url) :
 def get (url, index) :
     r = requests.get(url + "/" + str(index))
     print ("RESPONSE:", r.ok)
-    print (r.json())
     if (r.ok):
         jdata = json.loads(r.content)
-        print ("id is " , jdata['id'])
+        print ("ID is " , jdata['id'])
+    else :
+        print ("ID", str(id), "not present")
     return r.json()
 
 def post (url, json, data) :
     r = requests.post(url, json=json, headers=myHeaders)
+    if (r.ok) :
+        print ("POSTED okay")
+    else :
+        print ("POST failed")
+    return r.text
+
+def post (url, city="Chicago", description="No description provided", name="simplename", rating="3") :
+    print ("POST WITH ARGUMENTS")
+    myj = {
+        "city": city,
+        "description": description,
+        "name": name,
+        "rating": rating
+        }
+    r = requests.post(url, json=myj, headers=myHeaders)
+    if (r.ok) :
+        print ("POST okay")
+    else :
+        print ("POST failed")
     return r.text
 
 def delete (url, id) :
     r = requests.delete(url + "/" + str(id))
+    if (r.ok) :
+        print ("RESPONSE:", r.ok)
+    else :
+        print ("ID ", str(id), "does not exist")
     return
 
 def prettyprint (text) :
@@ -81,12 +105,12 @@ def reportall (url) :
             print ("Hotel id" , str(i['id']), "is named" , i['name'])
     return
 
-def put (url, id) :
-    myjson = { "description" : "Awesome hotel"  + str(id),
+def put (url, id, city, description, name, rating) :
+    myjson = { "description" : description,
                "id" : id,
-               "city" : "Chicago",
-               "name" : "Marco Hotel",
-               "rating" : "1"
+               "city" : city,
+               "name" : name,
+               "rating" : rating
                }
     r = requests.put(url + "/" + str (id), data=json.dumps(myjson), headers=myHeaders)
     if (r.ok) :
@@ -96,38 +120,57 @@ def put (url, id) :
     
     return
 
-
-def main(argv):
-    opts, args = getopt.getopt(sys.argv[1:],"hc",["get=","post","delete=","put","getall"])
-    for opt,arg in opts:
-        if opt in ('-c'):
-            print ("total count is: " + str(getcount(myUrl)))
-            sys.exit()
-        if opt in ('-h'):
-            print (sys.argv[0], '''<options>:
+def printhelp () :
+    print (sys.argv[0], '''<options>:
     -h help
     -c total count
-    -get --get <ID> get the named ID
-    -post --post <ID> post the named ID
-    -delete --delete <ID> delete the named ID
-    -put --put <ID> put the named ID
-    -getall --getall get the entire list of hotels
+    --get <ID> get the named ID 
+    --post create a new hotel with --city --description --name --rating data
+    --delete <ID> delete the hotel per named ID
+    --put <ID> update the hotel per named ID with --city --description --name --rating values
+    --getall get the entire list of hotels
 ''')
+
+
+def main(argv):
+    try:
+        opts, args = getopt.getopt(sys.argv[1:],"hc",["get=","post","delete=","put=","getall",
+                                                      "report","city=","description=","name=","rating="])
+    except getopt.GetoptError:
+        printhelp()
+        sys.exit()
+    for opt,arg in opts:
+        if opt in ('-h'):
+            printhelp()
             sys.exit()
-        elif opt in ("-get", "--get"):
+        elif opt in ('-c'):
+            print ("total count is: " + str(getcount(myUrl)))
+            sys.exit()
+        elif opt in ("--city") :
+            print ("Assigning ", str(arg))
+            city = arg
+        elif opt in ("--description") :
+            description = arg
+        elif opt in ("--name") :
+            name = arg
+        elif opt in ("--rating") :
+            rating = arg
+        elif opt in ("--get"):
             print ("GET ID", str(arg))
             prettyprint (get (myUrl, arg))
-        elif opt in ("-post", "--post") :
-            prettyprint (post (myUrl, myJson, myHeaders))
-        elif opt in ("-delete", "--delete") :
+        elif opt in ("--post") :
+            post (myUrl, city, description, name, rating)
+        elif opt in ("--delete") :
             print ("DELETE ID", str(arg))
             delete (myUrl, arg)
-        elif opt in ("-put", "--put") :
-            put (myUrl, 1)
+        elif opt in ("--put") :
+            put (myUrl, arg, city, description, name, rating)
         elif opt in ("--getall"):
             prettyprint (getall (myUrl))
-        elif opn in ("--report"):
+        elif opt in ("--report"):
             reportall(myUrl)
+        else:
+            sys.exit()
 
     #prettyprint (getall (myUrl))
     #prettyprint (delete (myUrl, 1))

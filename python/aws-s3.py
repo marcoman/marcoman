@@ -9,6 +9,17 @@ ec2 = boto3.client('ec2')
 url = 'https://jsonplaceholder.typicode.com/todos/1'
 data = '''{
 }'''
+
+def prettyprint (text) :
+    print (json.dumps(text, sort_keys=True, indent=4, separators=(',', ':')))
+    return
+
+def printbuckets () :
+    print ("Your buckets are: ")
+    for bucket in s3.buckets.all():
+        print ("Bucket : ", bucket.name)
+    
+
 #response = requests.post(url, data=data)
 r = requests.get(url)
 print ("Response is " , r.ok)
@@ -33,4 +44,4 @@ data = open ("instance-skeleton.json", "rb")
 s3.Bucket(myBucket).put_object(Key="instance-skeleton.json", Body=data)
 
 response = ec2.describe_instances()
-print ("Instances are: " , response)
+print ("Instances are: " , prettyprint(response))
