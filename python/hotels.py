@@ -32,7 +32,6 @@ myJson = {
 
 
 def getcount (url) :
-    print ("---getcount")
     r = requests.get(url + "?page=0&size=100")
     if (r.ok):
         jdata = json.loads(r.content)
@@ -42,7 +41,6 @@ def getcount (url) :
     
 
 def getall (url) :
-    print ("---getall")
     r = requests.get(url + "?page=0&size=100")
     if r.status_code != 200:
         #Something went wrong - notify the user
@@ -52,9 +50,8 @@ def getall (url) :
     return r.json()
 
 def get (url, index) :
-    print ("---get")
     r = requests.get(url + "/" + str(index))
-    print ("Response is ", r.ok)
+    print ("RESPONSE:", r.ok)
     print (r.json())
     if (r.ok):
         jdata = json.loads(r.content)
@@ -62,12 +59,10 @@ def get (url, index) :
     return r.json()
 
 def post (url, json, data) :
-    print ("---put")
     r = requests.post(url, json=json, headers=myHeaders)
     return r.text
 
 def delete (url, id) :
-    print ("---delete")
     r = requests.delete(url + "/" + str(id))
     return
 
@@ -76,7 +71,6 @@ def prettyprint (text) :
     return
 
 def reportall (url) :
-    print ("---reportall")
     r = requests.get(url + "?page=0&size=100")
     if (r.ok):
         jdata = json.loads(r.content)
@@ -104,33 +98,39 @@ def put (url, id) :
 
 
 def main(argv):
-    print ("ARGV: ", sys.argv[1:])
-    opts, args = getopt.getopt(sys.argv[1:],"h",["get","post","delete","put"])
-    print ("OPTIONS", opts)
+    opts, args = getopt.getopt(sys.argv[1:],"hc",["get=","post","delete=","put","getall"])
     for opt,arg in opts:
-        if opt == "-h" :
-            print ("run with parameters")
+        if opt in ('-c'):
+            print ("total count is: " + str(getcount(myUrl)))
             sys.exit()
-        elif opt == "get" :
-            print ("get")
-        elif opt == "post" :
-            print ("post")
-        elif opt == "delete" :
-            print ("delete")
-        elif opt == "put" :
-            print ("put")
-      
-    print ("total count is: " + str(getcount(myUrl)))
-    prettyprint (post (myUrl, myJson, myHeaders))
-    prettyprint (getall (myUrl))
-    prettyprint (get (myUrl, 1))
-    put (myUrl, 1)
-    reportall(myUrl)
+        if opt in ('-h'):
+            print (sys.argv[0], '''<options>:
+    -h help
+    -c total count
+    -get --get <ID> get the named ID
+    -post --post <ID> post the named ID
+    -delete --delete <ID> delete the named ID
+    -put --put <ID> put the named ID
+    -getall --getall get the entire list of hotels
+''')
+            sys.exit()
+        elif opt in ("-get", "--get"):
+            print ("GET ID", str(arg))
+            prettyprint (get (myUrl, arg))
+        elif opt in ("-post", "--post") :
+            prettyprint (post (myUrl, myJson, myHeaders))
+        elif opt in ("-delete", "--delete") :
+            print ("DELETE ID", str(arg))
+            delete (myUrl, arg)
+        elif opt in ("-put", "--put") :
+            put (myUrl, 1)
+        elif opt in ("--getall"):
+            prettyprint (getall (myUrl))
+        elif opn in ("--report"):
+            reportall(myUrl)
 
     #prettyprint (getall (myUrl))
-
     #prettyprint (delete (myUrl, 1))
-
     #prettyprint (getall (myUrl))
 
 
