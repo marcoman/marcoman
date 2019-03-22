@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd"
+           xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- In-Line Tasks -->
+
+    <type type="utils.CountXLDUsers" extends="xlrelease.PythonScript" label="Count XL Deploy Users">
+        <property name="taskColor" default="#08B153" hidden="true" />
+        <property name="iconLocation" default="xlrxldeploy/xl-deploy.svg" hidden="true" />
+
+        <property category="input" name="XLD Server" label="Server" referenced-type="XLDeploy.Server" kind="ci" description="XL Deploy server to connect to"/>
+        <property category="input" name="port" label="XLD Port" required="false" description="XL Deploy server to connect to"/>
+        <property category="input" name="username" required="false" description="Overrides the password used to connect to the server"/>
+        <property category="input" name="password" password="true" required="false" description="Overrides the password used to connect to the server"/>
+    </type>
+
+    <type type="utils.CountXLRUsers" extends="xlrelease.PythonScript" label="Count XL Release Users">
+        <property name="taskColor" default="#08B153" hidden="true" />
+
+        <property category="input" name="XLD Server" label="Server" referenced-type="XLDeploy.Server" kind="ci" description="XL Deploy server to connect to"/>
+        <property category="input" name="port" label="XLD Port" required="false" description="XL Deploy server to connect to"/>
+        <property category="input" name="username" required="false" description="Overrides the password used to connect to the server"/>
+        <property category="input" name="password" password="true" required="false" description="Overrides the password used to connect to the server"/>
+    </type>
+
+</synthetic>
