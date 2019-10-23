@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2019 XEBIALABS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd"
+          xmlns="http://www.xebialabs.com/deployit/synthetic"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- THERE IS NO SERVER CONFIGURATION -->
+  <type type="mysql.Task" extends="xlrelease.PythonScript" virtual="true">
+    <property name="iconLocation" default="mysql/mysql.png" hidden="true" />
+    <property name="serverurl" category="input" password="false" required="true" description="The MySQL DB URL" />
+    <property name="username" category="input" password="false" required="true" description="Use a token in place of a username/password" />
+    <property name="password" category="input" password="true" required="true" description="Use a token in place of a username/password" />
+  </type>
+
+  <type type="aws.Task" extends="xlrelease.PythonScript" virtual="true">
+    <property name="iconLocation" default="aws/aws.png" hidden="true" />
+    <property name="Region" category="input" password="false" required="true" description="select the region of your AWS action" />
+    <property name="Access_Key_ID" category="input" password="true" required="true" description="Your AWS Access Key ID" />
+    <property name="Secret_Access_Key" category="input" password="true" required="true" description="Your AWS Secret Acess Key" />
+  </type>
+
+
+  <!-- AWS -->
+  <type type="aws.DescribeRegions" extends="aws.Task" virtual="false" description="List the regions for your account">
+  </type>
+
+
+  <!-- MySQL -->
+  <type type="mysql.ShowTables" extends="mysql.Task" virtual="true" description="This lists the tables in your database">
+  </type>
+
+  <type type="mysql.ExecuteStatement" extends="mysql.Task" virtual="false" description="Execute the named statement">
+    <property name="Statement" required="true" password="false" description="This is your SQL statement" />
+  </type>
+
+
+
+</synthetic>
