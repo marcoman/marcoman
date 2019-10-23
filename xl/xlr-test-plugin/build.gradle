@@ -16,7 +16,7 @@ plugins {
 
 dependencies {
     jython ":boto3:1.9.253"
-    jython "mysql:mysql-connector-python:2.2.9"
+    jython "mysql:mysql-connector-python:8.0.18"
 }
 
 license {
@@ -47,4 +47,3 @@ xlDocker {
     /* See src/test/resources/docker/docker-compose.yml for more details. */
 }
 
-buildScan { termsOfServiceUrl = "https://gradle.com/terms-of-service"; termsOfServiceAgree = "yes" }
