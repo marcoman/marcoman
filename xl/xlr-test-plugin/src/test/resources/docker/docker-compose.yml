@@ -14,21 +14,5 @@ xlr:
   volumes:
     - ~/xl-licenses:/license
     - ./../../../../:/data
-  links:
-    - vault
   ports:
     - "15516:5516"
-
-vault:
-  image: vault
-  container_name: hashicorp-vault
-  ports:
-    - "15200:8200"
-  restart: always
-  volumes:
-    - ./../vault/volumes/config:/vault/config
-    - ./../../../../vault/volumes/file:/vault/file
-    - ./../../../../vault/volumes/logs:/vault/logs
-  cap_add:
-    - IPC_LOCK
-  entrypoint: vault server -config=/vault/config/vault.json

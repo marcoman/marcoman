@@ -15,7 +15,8 @@ plugins {
 }
 
 dependencies {
-    jython ":hvac:0.9.5"
+    jython ":boto3:1.9.253"
+    jython "mysql:mysql-connector-python:2.2.9"
 }
 
 license {
@@ -23,12 +24,14 @@ license {
     strictCheck false
     ext.year = Calendar.getInstance().get(Calendar.YEAR)
     ext.name = 'XEBIALABS'
+    /* Ignore build folder contents */
+    exclude "**/build/**/*.*"
+    exclude "**/boto3/**/*.*"
     /* Ignore JSON files because you can't point comments in there. */
     exclude "**/*.json"
     /* Ignore png files. */
     exclude "**/*.png"
-    /* Ignore hvac library files because we don't control them. */
-    exclude "**/hvac/**/*.*"
+    /* Ignore xlvals library files because we don't control them. */
     exclude "**/*.xlvals"
 }
 
@@ -43,3 +46,5 @@ xlDocker {
     runPortMapping = '15516:5516'
     /* See src/test/resources/docker/docker-compose.yml for more details. */
 }
+
+buildScan { termsOfServiceUrl = "https://gradle.com/terms-of-service"; termsOfServiceAgree = "yes" }

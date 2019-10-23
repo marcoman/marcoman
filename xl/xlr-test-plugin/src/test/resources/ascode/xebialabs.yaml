@@ -11,5 +11,4 @@ apiVersion: xl/v1
 kind: Import
 metadata:
   imports:
-    - xebialabs/xlr-configurations.yml
-    - xebialabs/xlr-template.yml
+    - xebialabs/xlr-test-template.yml

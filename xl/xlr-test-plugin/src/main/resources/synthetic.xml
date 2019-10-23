@@ -15,8 +15,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!-- THERE IS NO SERVER CONFIGURATION -->
-  <type type="mysql.Task" extends="xlrelease.PythonScript" virtual="true">
-    <property name="iconLocation" default="mysql/mysql.png" hidden="true" />
+  <type type="mysqlx.Task" extends="xlrelease.PythonScript" virtual="true">
+    <property name="iconLocation" default="mysqlx/mysql.png" hidden="true" />
     <property name="serverurl" category="input" password="false" required="true" description="The MySQL DB URL" />
     <property name="username" category="input" password="false" required="true" description="Use a token in place of a username/password" />
     <property name="password" category="input" password="true" required="true" description="Use a token in place of a username/password" />
@@ -36,10 +36,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
   <!-- MySQL -->
-  <type type="mysql.ShowTables" extends="mysql.Task" virtual="true" description="This lists the tables in your database">
+  <type type="mysqlx.ShowTables" extends="mysql.Task" virtual="false" description="This lists the tables in your database">
   </type>
 
-  <type type="mysql.ExecuteStatement" extends="mysql.Task" virtual="false" description="Execute the named statement">
+  <type type="mysqlx.ExecuteStatement" extends="mysql.Task" virtual="false" description="Execute the named statement">
     <property name="Statement" required="true" password="false" description="This is your SQL statement" />
   </type>
 
