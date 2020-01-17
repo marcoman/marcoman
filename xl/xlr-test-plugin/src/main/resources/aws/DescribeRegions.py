@@ -7,9 +7,18 @@
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import boto3
-client = boto3.client(
-    'ec2',
-    aws_access_key_id=Access_Key_ID,
-    aws_secret_access_key=Secret_Access_Key,
-)
+from aws.AWS import AWS
+
+aws = AWS.get_aws("startup")
+
+aws.logger.info("=== AWS Describe Regions===")
+aws.logger.info("You will connect to region {} with aws_access_key_id {} ".format(Region, Access_Key_ID))
+
+f = open("aws-command", "a")
+f.write('''\
+export AWS_ACCESS_KEY_ID={}
+export AWS_SECRET_ACCESS_KEY={}
+export AWS_DEFAULT_REGION=us-west-2
+aws ec2 describe-instances
+'''.format(Access_Key_ID, Secret_Access_Key))
+f.close()

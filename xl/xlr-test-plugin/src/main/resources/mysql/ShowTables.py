@@ -7,23 +7,25 @@
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import mysql.connector
-from MySQL import MySQL
+from org.slf4j import Logger
+from org.slf4j import LoggerFactory
+from mysql.MySql import MySql
+import os
+
+mydb = MySql.get_mysql("startup")
 
 
-MySQL.logger.info("=== MYSQL SHOW TABLES ===")
+mydb.loginfo("=== MYSQL SHOW TABLES ===")
+mydb.loginfo("You will connect to {} with username {}".format(serverurl, username))
 
-mydb = mysql.connector.connect(
-    host=serverurl,
-    user=username,
-    passwd=password
-)
+f = open("mysql-command", "a")
+f.write("show databases;")
+f.close()
 
-MySQL.logger.info(mydb)
+f = open("mysql-invoke", "a")
+f.write("mysql -h{} -u {} -p{}".format(serverurl, username, password))
+f.close()
 
-mycursor = mydb.cursor()
-mycursor.execute("SHOW TABLES")
-
-for x in mycursor:
-    MySQL.logger.info("=== MYSQL TABLE: {}===".format(x))
-
+myCmd = 'pwd'
+myOutput = os.system(myCmd)
+mydb.loginfo("=== MYSQL Command output is \n{}".format(myOutput))

@@ -16,11 +16,18 @@ class MySql(object):
     # It is convenient to have separate values for exit codes, instead of the usual exit(1)
 
     @staticmethod
-    def exit (code, message):
-        logger.error("MYSQL({}) {}".format(code, message))
+    def exit (self, code, message):
+        self.logger.error("MYSQL({}) {}".format(code, message))
         exit("MYSQL({}) {}".format(code, message))
     #        exit(code)
 
-    def __init__(self, url, token):
+    @staticmethod
+    def get_mysql(self):
+        return MySql()
+
+    def loginfo (self, message):
+        self.logger.info(message)
+
+    def __init__(self):
         self.logger = LoggerFactory.getLogger("mysql")
         self.logger.info("=== INITIALIZE MYSQL ==========================================")

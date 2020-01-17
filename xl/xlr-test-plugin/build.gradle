@@ -15,8 +15,8 @@ plugins {
 }
 
 dependencies {
-    jython ":boto3:1.9.253"
-    jython "mysql:mysql-connector-python:8.0.18"
+    jython ":mysql-connector-python:8.0.18"
+    jython ":boto3:1.9.203"
 }
 
 license {

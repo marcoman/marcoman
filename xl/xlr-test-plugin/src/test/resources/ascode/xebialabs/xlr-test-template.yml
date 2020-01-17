@@ -18,16 +18,20 @@ spec:
     - phase: New Phase
       description: Show a sequence where we run database and AWS operations with u/p supplied directly (no configuration)
       tasks:
-      - name: Pause
-        description: Wait for user input
-        type: xlrelease.Task
-        owner: admin
       - name: Show Tables
         description: List the tables of the database.
         type: mysql.ShowTables
         serverurl: host.docker.internal
         username: root
         password: !value "mysql_password"
+      - name: Read File
+        description: Show the contents of the files.
+        type: test.CatFile
+        Filename: "mysql-command"
+      - name: Read File
+        description: Show the contents of the files.
+        type: test.CatFile
+        Filename: "mysql-invoke"
       - name: Pause
         description: Show evidence of this secret being used.
         type: xlrelease.Task
@@ -38,6 +42,10 @@ spec:
         Region: us-east-1
         Access_Key_ID: !value "aws_access_key_id"
         Secret_Access_Key: !value "aws_secret_key"
+      - name: Read File
+        description: Show the contents of the files.
+        type: test.CatFile
+        Filename: "aws-command"
       - name: Pause
         description: Show evidence of this secret being used.
         type: xlrelease.Task
