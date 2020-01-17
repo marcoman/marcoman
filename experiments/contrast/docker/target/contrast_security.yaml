@@ -1,0 +1,12 @@
+api: 
+  url: https://eval.contrastsecurity.com/Contrast
+  api_key: FgtEu342x22HkR2nFe1aR65V9esgd1EU
+  service_key: AFKJ612KSK1HKDL9
+  user_name: agent_8983b8a4-d70b-41a9-8a53-f8c8e3e064d6@MarcoMoralesSeTechWorkshop
+
+agent:
+  java:
+    standalone_app_name: WebGoat
+  logger:
+    level: ALL
+    path: ./trace_contrast_agent.log

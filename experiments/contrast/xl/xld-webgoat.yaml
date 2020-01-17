@@ -1,0 +1,44 @@
+---
+apiVersion: xl-deploy/v1
+kind: Applications
+spec:
+- name: Applications/docker-webgoat
+  type: udm.Application
+  children:
+  - name: "7.1.3"
+    type: udm.DeploymentPackage
+    deployables:
+    - name: webgoat-pod
+      type: k8s.PodSpec
+      containers:
+      - name: webgoat-container
+        type: k8s.ContainerSpec
+        image: mrmarcoamorales/webgoat:7.1.3
+        ports:
+        - name: ports
+          type: k8s.ContainerPortSpec
+          hostPort: "18081"
+          containerPort: "8080"
+      labels:
+        app: webgoat
+    - name: webgoat
+      type: docker.ContainerSpec
+      tags:
+      - local
+      image: '{{REGISTRY}}/webgoat:1'
+      portBindings:
+      - name: ports
+        type: docker.PortSpec
+        hostPort: "5080"
+        containerPort: "8080"
+    - name: webgoat-swarm
+      type: docker.ServiceSpec
+      tags:
+      - swarm
+      image: '{{REGISTRY}}/webgoat:1'
+      replicas: "2"
+      portBindings:
+      - name: swarm-ports
+        type: docker.ServicePortSpec
+        target_port: "8080"
+        published_port: "18080"
