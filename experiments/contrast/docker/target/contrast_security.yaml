@@ -9,4 +9,4 @@ agent:
     standalone_app_name: WebGoat
   logger:
     level: ALL
-    path: ./trace_contrast_agent.log
+    path: trace_contrast_agent.log
