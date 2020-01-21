@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-webgoat
+spec:
+  selector:
+    matchLabels:
+      app: my-webgoat
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-webgoat
+    spec:
+      containers:
+      - name: webgoat
+        image: mrmarcoamorales/webgoat:7.1.5
+        ports:
+        - containerPort: 8080
+
