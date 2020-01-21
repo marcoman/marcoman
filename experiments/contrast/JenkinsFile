@@ -1,0 +1,26 @@
+	node {
+	    environment {
+	        CONTRAST_USERID = '8983b8a4-d70b-41a9-8a53-f8c8e3e064d6'
+	        CONTRAST_KEY    = 'FgtEu342x22HkR2nFe1aR65V9esgd1EU'
+	        CONTRAST_AUTH   = 'bXIubWFyY28uYS5tb3JhbGVzQGdtYWlsLmNvbTpVQUVSUU1QWTdVME8yNldQ'
+	    }
+	
+	   def appimage
+	   
+	   stage('Preparation') { // for display purposes
+	      // Get some code from a GitHub repository
+	      git branch: 'master',
+	            url: 'https://github.com/marcoman/marcoman'
+	   }    
+	   stage('Build Docker Image') {
+	       appimage = docker.build("mrmarcoamorales/webgoat:7.2.$BUILD_NUMBER", "experiments/contrast/docker")
+	   }
+	   stage('Update Manifest and publish'){
+	       dir ("experiments/contrast/xl/xld") {
+	           sh "sed -i 's/{{BUILD_NUMBER}}/$BUILD_NUMBER/g' deployit-manifest.xml"
+	           sh "sed -i 's/{{BUILD_NUMBER}}/$BUILD_NUMBER/g' webgoat-deployment/webgoat-deployment.yaml"
+	       }
+	       xldCreatePackage artifactsPath: 'experiments/contrast/xl/xld', manifestPath: 'experiments/contrast/xl/xld/deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'
+	       xldPublishPackage serverCredentials: 'admin', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'
+	   }
+	}
