@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: webgoat
-        image: mrmarcoamorales/webgoat:7.1.5
+        image: mrmarcoamorales/webgoat:{{BUILD_NUMBER}}
         ports:
         - containerPort: 8080
 

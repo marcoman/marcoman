@@ -5,14 +5,6 @@
   <deployables>
     <k8s.ResourcesFile name="/webgoat-deployment" file="/webgoat-deployment/webgoat-deployment.yaml">
       <tags />
-      <scanPlaceholders>true</scanPlaceholders>
-      <preScannedPlaceholders>true</preScannedPlaceholders>
-      <placeholders />
-      <delimiters>{{ }}</delimiters>
-      <checksum>020c4f5aaa225eabcd2b28ecb88e55046f6efb2c</checksum>
-      <mergePatchType>strategic</mergePatchType>
-      <propagationPolicy>Foreground</propagationPolicy>
-      <updateMethod>patch</updateMethod>
     </k8s.ResourcesFile>
   </deployables>
   <applicationDependencies>
