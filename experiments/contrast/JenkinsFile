@@ -1,10 +1,4 @@
 	node {
-	    environment {
-	        CONTRAST_USERID = '8983b8a4-d70b-41a9-8a53-f8c8e3e064d6'
-	        CONTRAST_KEY    = 'FgtEu342x22HkR2nFe1aR65V9esgd1EU'
-	        CONTRAST_AUTH   = 'bXIubWFyY28uYS5tb3JhbGVzQGdtYWlsLmNvbTpVQUVSUU1QWTdVME8yNldQ'
-	    }
-	
 	   def appimage
 	   
 	   stage('Preparation') { // for display purposes
