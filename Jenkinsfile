@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("DEV") {
             agent {
-                docker { image 'maven:3-apline' }
+                docker { image 'maven:3-alpine' }
             }
             steps {
                 sh 'mvn --version'
