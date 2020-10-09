@@ -14,27 +14,27 @@ pipeline {
         }
         stage("QA") {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
         stage("UAT") {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
         stage("PERF") {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
         stage("PRE-PROD") {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
         stage("PROD") {
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
     }
