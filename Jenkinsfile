@@ -2,8 +2,11 @@ pipeline {
     agent any
     stages {
         stage("DEV") {
+            agent {
+                docker { image 'maven:3-apline' }
+            }
             steps {
-                bat 'set'
+                sh 'mvn --version'
             }
         }
         stage("QA") {
