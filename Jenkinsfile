@@ -2,6 +2,9 @@ pipeline {
     agent any
     stages {
         stage("DEV") {
+            environment {
+                HOME="."
+            }
             agent {
                 docker { image 'maven:3-alpine' }
             }
