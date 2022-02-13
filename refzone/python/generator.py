@@ -185,24 +185,24 @@ with open("refs.csv", 'r') as refs:
 
 
             # How do you feel?
-            # How would you rate the facility you are at?
-            # How would you rate your performance in the game?
-            # What did you think of the condition of the playing area druing the game?
-            # What did you think of the interaction with the players from Team 1?
-            # What did you think of the interaction with the players from Team 2?
-            # How was your experience with the coach from Team 1?
-            # How was your experience with the coach from Team 2?
-            # Did you have a negitive experience with the crowd?
-
             ref_values.append(max(min(int(rate_feeling), 5),2))
+            # How would you rate the facility you are at?
             ref_values.append(max(min(int(rate_facility), 5),1))
+            # How would you rate your performance in the game?
             ref_values.append(max(min(int(rate_performance), 5),2))
+            # What did you think of the condition of the playing area druing the game?
             ref_values.append(max(min(int(rate_playing_area), 5),1))
+            # What did you think of the interaction with the players from Team 1?
             ref_values.append(max(min(int(rate_home_team), 5),1))
+            # What did you think of the interaction with the players from Team 2?
             ref_values.append(max(min(int(rate_away_team), 5),1))
+            # How was your experience with the coach from Team 1?
             ref_values.append(max(min(int(rate_home_coach), 5),1))
+            # How was your experience with the coach from Team 2?
             ref_values.append(max(min(int(rate_away_coach), 5),1))
+            # Did you have a negitive experience with the crowd?
             ref_values.append(max(min(int(rate_crowd), 5),1))
+
             print ("sum {} {} score {}-{} rink {} ref {}.{} ".format(
                 _sum(ref_values),
                 ref_values,                
@@ -211,6 +211,5 @@ with open("refs.csv", 'r') as refs:
                 currentline[index_rink_number],
                 currentline[index_last_name], (int(currentline[index_official_id]) - 1200) % 9
                 ))
-
         line_number += 1
 
