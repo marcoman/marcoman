@@ -9,6 +9,12 @@ from weakref import ref
 
 def gen_value(low, high):
     return randint(low, high)
+
+def _sum(arr):
+    sum=0
+    for i in arr:
+        sum += i
+    return (sum)
     
 # read in ref list
 with open("refs.csv", 'r') as refs:
@@ -58,28 +64,28 @@ with open("refs.csv", 'r') as refs:
                 index += 1
             print ("First Name, Last Name indices are {}, {}".format(index_first_name, index_last_name))
         else:
-            ref_values = [-1]
+            ref_values = []
             currentline = line.split(",")
 
             # initialize all values
             # Pre-game
-            rate_feeling = 3
-            rate_facility = 3
+            rate_feeling = 3.0 + (randint(-2,2))
+            rate_facility = 3.0
 
             # Post-game
-            rate_performance = 3
-            rate_playing_area = 3
-            rate_home_team = 3
-            rate_away_team = 3
-            rate_home_coach = 3
-            rate_away_coach = 3
-            rate_crowd = 3
+            rate_performance = 3.0
+            rate_playing_area = 3.0
+            rate_home_team = 3.0
+            rate_away_team = 3.0
+            rate_home_coach = 3.0
+            rate_away_coach = 3.0
+            rate_crowd = 3.0
 
             # Assume rink 1 is best, rink 3 is worst.  Most true for multi-rink clubs.
             if (currentline[index_rink_number] == 3):
                 rate_playing_area -= 2
-            elif (currentline[index_rink_number] == 1):
-                rate_playing_area += 1
+            elif (currentline[index_rink_number] == 2):
+                rate_playing_area += 2
 
             # Club: Haverford-, Hershey+ all teams
             # Team: Delco Phantoms 14UA - team
@@ -105,13 +111,25 @@ with open("refs.csv", 'r') as refs:
 
             # If Ref's last name is a specific length, penalize their performance
             if (len(currentline[index_last_name])==6):
-                rate_performance -= 0.2
-            if (currentline[index_last_name][0]=='N'):
                 rate_performance -= 0.5
+            if (currentline[index_last_name][0]=='N'):
+                rate_performance += 1
+                rate_away_coach -= 1
+                rate_away_team -= 1
+                rate_home_coach -= 1
+                rate_home_team -= 1
+                rate_crowd -= 1
+                rate_playing_area -= 1
             elif (currentline[index_last_name][0]=='P'):
-                rate_performance += 0.5
-            elif (currentline[index_last_name][0]=='F'):
-                rate_performance += 0
+                rate_performance += 1
+                rate_away_coach += 1
+                rate_away_team += 1
+                rate_home_coach += 1
+                rate_home_team += 1
+                rate_crowd += 1
+                rate_playing_area += 1
+            # elif (currentline[index_last_name][0]=='F'):
+            #     rate_performance += 0
             else:
                 rate_performance += 0
 
@@ -121,34 +139,34 @@ with open("refs.csv", 'r') as refs:
             if (currentline[index_home_club] == "Genesis Hockey Club"):
                 rate_crowd += 1
 
-            # Ref-specific adjustments
+            # Ref-specific adjustments.  Use a modulus to pick somebody
             # if Ref E - scores are +0.5
             # If Ref F - scores are -0.5
             # a percentages of refs are negative/positive in demeanor
-
-            if (((int(currentline[index_official_id]) - 1200) % 9) ==5):
-                rate_away_coach -= 1
-                rate_away_team -= 1
-                rate_home_coach -= 1
-                rate_home_team -= 1
-                rate_crowd -= 1
-                rate_facility -= 1
+            if (((int(currentline[index_official_id]) - 1200) % 9) == 5):
+                rate_away_coach -= 1.5
+                rate_away_team -= 1.5
+                rate_home_coach -= 1.5
+                rate_home_team -= 1.5
+                rate_crowd -= 1.5
+                rate_playing_area -= 1.5
             
-            if (((int(currentline[index_official_id]) - 1200) % 9) ==6):
-                rate_away_coach += 1
-                rate_away_team += 1
-                rate_home_coach += 1
-                rate_home_team += 1
-                rate_crowd += 1
-                rate_facility += 1
+            if (((int(currentline[index_official_id]) - 1200) % 9) == 6):
+                rate_away_coach += 1.5
+                rate_away_team += 1.5
+                rate_home_coach += 1.5
+                rate_home_team += 1.5
+                rate_crowd += 1.5
+                rate_playing_area += 1.5
 
             # Correlations
-            # Facilities 1-5 means - 0 + % chance to change crowd
-            rate_home_team += (random() * 2)
-            rate_away_team += (random() * 2)
-            rate_performance += (random() * 2)
-            rate_playing_area += (random() * 2)
-            rate_crowd += (random() * (rate_facility - 3) / 5)
+            rate_home_team += randint(-2,2)
+            rate_away_team += randint(-2,2)
+            rate_performance += randint(-2,2)
+            rate_playing_area += randint(-2,2)
+            # Facilities 1-5 means a chance to change crowd
+            rate_crowd += randint (min (0, int(rate_playing_area-3)),
+                                   max (0, int(rate_playing_area-3)))
 
             # Ref: coach affected
             rate_home_coach += (random() * 2) * (random() * rate_feeling -3 / 5)
@@ -176,19 +194,23 @@ with open("refs.csv", 'r') as refs:
             # How was your experience with the coach from Team 2?
             # Did you have a negitive experience with the crowd?
 
-            ref_values.append(max(min(int(rate_feeling), 5),1))
+            ref_values.append(max(min(int(rate_feeling), 5),2))
             ref_values.append(max(min(int(rate_facility), 5),1))
-            ref_values.append(max(min(int(rate_performance), 5),1))
+            ref_values.append(max(min(int(rate_performance), 5),2))
             ref_values.append(max(min(int(rate_playing_area), 5),1))
             ref_values.append(max(min(int(rate_home_team), 5),1))
             ref_values.append(max(min(int(rate_away_team), 5),1))
             ref_values.append(max(min(int(rate_home_coach), 5),1))
             ref_values.append(max(min(int(rate_away_coach), 5),1))
             ref_values.append(max(min(int(rate_crowd), 5),1))
-            print ("Score: {}-{}: Ref {}.{} has {}".format(currentline[index_home_score],
-                currentline[index_away_score], 
-                currentline[index_last_name], (int(currentline[index_official_id]) - 1200) % 9,
-                ref_values))
+            print ("sum {} {} score {}-{} rink {} ref {}.{} ".format(
+                _sum(ref_values),
+                ref_values,                
+                currentline[index_home_score],
+                currentline[index_away_score],
+                currentline[index_rink_number],
+                currentline[index_last_name], (int(currentline[index_official_id]) - 1200) % 9
+                ))
 
         line_number += 1
 
