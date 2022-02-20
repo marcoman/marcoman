@@ -1,5 +1,3 @@
-
-from ast import AsyncFunctionDef
 import datetime
 import time
 import json
@@ -15,6 +13,9 @@ def _sum(arr):
     for i in arr:
         sum += i
     return (sum)
+
+o = open ("results.csv", 'w')
+
     
 # read in ref list
 with open("refs.csv", 'r') as refs:
@@ -39,9 +40,9 @@ with open("refs.csv", 'r') as refs:
             firstline = line.split(',')
             index = 0
             for title in firstline:
-                if (title=="Last Name" ):
+                if (title=="LastName" ):
                     index_last_name = index
-                if (title=="First Name" ):
+                if (title=="FirstName" ):
                     index_first_name = index
                 if (title=="Rink" ):
                     index_rink = index
@@ -110,7 +111,7 @@ with open("refs.csv", 'r') as refs:
                 rate_away_team += 1
 
             # If Ref's last name is a specific length, penalize their performance
-            if (len(currentline[index_last_name])==6):
+            if (len(currentline[index_last_name])==7):
                 rate_performance -= 0.5
             if (currentline[index_last_name][0]=='N'):
                 rate_performance += 1
@@ -183,27 +184,28 @@ with open("refs.csv", 'r') as refs:
             if (rate_playing_area < 2):
                 rate_crowd -= 1
 
-
+            # no smaller than the Max value, no higher than the min value.
             # How do you feel?
-            ref_values.append(max(min(int(rate_feeling), 5),2))
+            ref_values.append(min(max(int(rate_feeling), 2),5))
             # How would you rate the facility you are at?
-            ref_values.append(max(min(int(rate_facility), 5),1))
+            ref_values.append(min(max(int(rate_facility), 1),5))
             # How would you rate your performance in the game?
-            ref_values.append(max(min(int(rate_performance), 5),2))
+            ref_values.append(min(max(int(rate_performance), 2),5))
             # What did you think of the condition of the playing area druing the game?
-            ref_values.append(max(min(int(rate_playing_area), 5),1))
+            ref_values.append(min(max(int(rate_playing_area), 1),5))
             # What did you think of the interaction with the players from Team 1?
-            ref_values.append(max(min(int(rate_home_team), 5),1))
+            ref_values.append(min(max(int(rate_home_team), 1),5))
             # What did you think of the interaction with the players from Team 2?
-            ref_values.append(max(min(int(rate_away_team), 5),1))
+            ref_values.append(min(max(int(rate_away_team), 1),5))
             # How was your experience with the coach from Team 1?
-            ref_values.append(max(min(int(rate_home_coach), 5),1))
+            ref_values.append(min(max(int(rate_home_coach), 1),5))
             # How was your experience with the coach from Team 2?
-            ref_values.append(max(min(int(rate_away_coach), 5),1))
+            ref_values.append(min(max(int(rate_away_coach), 1),5))
             # Did you have a negitive experience with the crowd?
-            ref_values.append(max(min(int(rate_crowd), 5),1))
+            ref_values.append(min(max(int(rate_crowd), 1),5))
 
-            print ("sum {} {} score {}-{} rink {} ref {}.{} ".format(
+            print ("{}: sum {} {} score {}-{} rink {} ref {}.{} ".format(
+                line_number,
                 _sum(ref_values),
                 ref_values,                
                 currentline[index_home_score],
@@ -211,5 +213,11 @@ with open("refs.csv", 'r') as refs:
                 currentline[index_rink_number],
                 currentline[index_last_name], (int(currentline[index_official_id]) - 1200) % 9
                 ))
+
+            for v in ref_values:
+                o.write("{},".format(v))
+            o.write('\n')
+
         line_number += 1
 
+o.close()
