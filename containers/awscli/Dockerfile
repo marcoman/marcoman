@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image 
-FROM ubuntu
+FROM ubuntu:20.04
 
 # Set the working directory 
 WORKDIR /root 
