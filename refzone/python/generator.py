@@ -14,11 +14,11 @@ def _sum(arr):
         sum += i
     return (sum)
 
-o = open ("results.csv", 'w')
+o = open ("outputs.csv", 'w')
 
     
 # read in ref list
-with open("refs.csv", 'r') as refs:
+with open("inputs.csv", 'r') as refs:
     # process the first line to find the right indices
     line_number = 0
     index_last_name = 0
@@ -65,22 +65,24 @@ with open("refs.csv", 'r') as refs:
                 index += 1
             print ("First Name, Last Name indices are {}, {}".format(index_first_name, index_last_name))
         else:
-            ref_values = []
+            output_values = []
             currentline = line.split(",")
 
             # initialize all values
             # Pre-game
-            rate_feeling = 3.0 + (randint(-2,2))
+            rate_prepared = 3.0 + (randint(-2,2))
             rate_facility = 3.0
 
             # Post-game
             rate_performance = 3.0
             rate_playing_area = 3.0
+
             rate_home_team = 3.0
-            rate_away_team = 3.0
             rate_home_coach = 3.0
+            rate_home_crowd = 3.0
+            rate_away_team = 3.0
             rate_away_coach = 3.0
-            rate_crowd = 3.0
+            rate_away_crowd = 3.0
 
             # Assume rink 1 is best, rink 3 is worst.  Most true for multi-rink clubs.
             if (currentline[index_rink_number] == 3):
@@ -119,7 +121,8 @@ with open("refs.csv", 'r') as refs:
                 rate_away_team -= 1
                 rate_home_coach -= 1
                 rate_home_team -= 1
-                rate_crowd -= 1
+                rate_home_crowd -= 1
+                rate_away_crowd -= 1
                 rate_playing_area -= 1
             elif (currentline[index_last_name][0]=='P'):
                 rate_performance += 1
@@ -127,7 +130,8 @@ with open("refs.csv", 'r') as refs:
                 rate_away_team += 1
                 rate_home_coach += 1
                 rate_home_team += 1
-                rate_crowd += 1
+                rate_home_crowd += 1
+                rate_away_crowd += 1
                 rate_playing_area += 1
             # elif (currentline[index_last_name][0]=='F'):
             #     rate_performance += 0
@@ -136,9 +140,11 @@ with open("refs.csv", 'r') as refs:
 
             # Crowd: Grundy-, Genesis+
             if (currentline[index_home_club] == "Grundy Senators"):
-                rate_crowd -= 1
+                rate_home_crowd -= 1
+                rate_away_crowd -= 1
             if (currentline[index_home_club] == "Genesis Hockey Club"):
-                rate_crowd += 1
+                rate_home_crowd += 1
+                rate_away_crowd += 1
 
             # Ref-specific adjustments.  Use a modulus to pick somebody
             # if Ref E - scores are +0.5
@@ -149,7 +155,8 @@ with open("refs.csv", 'r') as refs:
                 rate_away_team -= 1.5
                 rate_home_coach -= 1.5
                 rate_home_team -= 1.5
-                rate_crowd -= 1.5
+                rate_home_crowd -= 1.5
+                rate_away_crowd -= 1.5
                 rate_playing_area -= 1.5
             
             if (((int(currentline[index_official_id]) - 1200) % 9) == 6):
@@ -157,7 +164,8 @@ with open("refs.csv", 'r') as refs:
                 rate_away_team += 1.5
                 rate_home_coach += 1.5
                 rate_home_team += 1.5
-                rate_crowd += 1.5
+                rate_home_crowd += 1.5
+                rate_away_crowd += 1.5
                 rate_playing_area += 1.5
 
             # Correlations
@@ -166,55 +174,123 @@ with open("refs.csv", 'r') as refs:
             rate_performance += randint(-2,2)
             rate_playing_area += randint(-2,2)
             # Facilities 1-5 means a chance to change crowd
-            rate_crowd += randint (min (0, int(rate_playing_area-3)),
+            rate_home_crowd += randint (min (0, int(rate_playing_area-3)),
+                                   max (0, int(rate_playing_area-3)))
+            rate_away_crowd += randint (min (0, int(rate_playing_area-3)),
                                    max (0, int(rate_playing_area-3)))
 
             # Ref: coach affected
-            rate_home_coach += (random() * 2) * (random() * rate_feeling -3 / 5)
-            rate_away_coach += (random() * 2) * (random() * rate_feeling -3 / 5)
+            rate_home_coach += (random() * 2) * (random() * rate_prepared -3 / 5)
+            rate_away_coach += (random() * 2) * (random() * rate_prepared -3 / 5)
 
             # If Home or Visitor, Win, Ref ++, otherwise Lose Ref --, influenced by rink
             #    Rink condition
             #    Win/Lose +10,-10
             #    Score greater than 5: +20,-20
             if (abs(int(currentline[index_home_score]) - int(currentline[index_away_score])) > 10 ):
-                rate_crowd -= 2
+                rate_home_crowd -= 2
+                rate_away_crowd -= 2
             elif (abs(int(currentline[index_home_score]) - int(currentline[index_away_score])) > 5 ):
-                rate_crowd -= 1
+                rate_home_crowd -= 1
+                rate_away_crowd -= 1
             if (rate_playing_area < 2):
-                rate_crowd -= 1
+                rate_home_crowd -= 1
+                rate_away_crowd -= 1
 
             # no smaller than the Max value, no higher than the min value.
-            # How do you feel?
-            ref_values.append(min(max(int(rate_feeling), 2),5))
-            # How would you rate the facility you are at?
-            ref_values.append(min(max(int(rate_facility), 1),5))
-            # How would you rate your performance in the game?
-            ref_values.append(min(max(int(rate_performance), 2),5))
-            # What did you think of the condition of the playing area druing the game?
-            ref_values.append(min(max(int(rate_playing_area), 1),5))
-            # What did you think of the interaction with the players from Team 1?
-            ref_values.append(min(max(int(rate_home_team), 1),5))
-            # What did you think of the interaction with the players from Team 2?
-            ref_values.append(min(max(int(rate_away_team), 1),5))
-            # How was your experience with the coach from Team 1?
-            ref_values.append(min(max(int(rate_home_coach), 1),5))
-            # How was your experience with the coach from Team 2?
-            ref_values.append(min(max(int(rate_away_coach), 1),5))
-            # Did you have a negitive experience with the crowd?
-            ref_values.append(min(max(int(rate_crowd), 1),5))
+            output_values.append('Y')
+            # How well prepared do you feel to perform to the best of your ability for this game?
+            output_values.append(min(max(int(rate_prepared), 2),5))
+            # How would you rate this facility compared to others where you officiate?
+            output_values.append(min(max(int(rate_facility), 1),5))
+            # Please rate your own performance in the game between TEAM 1 and TEAM 2?
+            output_values.append(min(max(int(rate_performance), 2),5))
+            # In your opinion, how were the playing conditions (area of play) for this game?
+            output_values.append(min(max(int(rate_playing_area), 1),5))
+            # How was your game experience with Team 1?
+            output_values.append(min(max(int(rate_home_team), 1),5))
+            # How was your game experience with Team 2?
+            output_values.append(min(max(int(rate_away_team), 1),5))
+            # How was your game experience with Coach 1?
+            output_values.append(min(max(int(rate_home_coach), 1),5))
+            # How was your game experience with Coach 2?
+            output_values.append(min(max(int(rate_away_coach), 1),5))
+            # How was your game experience with the crowd members supporting Team 1?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How was your game experience with the crowd members supporting Team 2?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
 
-            print ("{}: sum {} {} score {}-{} rink {} ref {}.{} ".format(
+            # no smaller than the Max value, no higher than the min value.
+            # How well prepared do you feel to perform to the best of your ability for this game?
+            output_values.append('Y')
+            output_values.append(min(max(int(rate_prepared), 2),5))
+            # How would you rate this facility compared to others where you officiate?
+            output_values.append(min(max(int(rate_facility), 1),5))
+            # Please rate your own performance in the game between TEAM 1 and TEAM 2?
+            output_values.append(min(max(int(rate_performance), 2),5))
+            # In your opinion, how were the playing conditions (area of play) for this game?
+            output_values.append(min(max(int(rate_playing_area), 1),5))
+            # How was your game experience with Team 1?
+            output_values.append(min(max(int(rate_home_team), 1),5))
+            # How was your game experience with Team 2?
+            output_values.append(min(max(int(rate_away_team), 1),5))
+            # How was your game experience with Coach 1?
+            output_values.append(min(max(int(rate_home_coach), 1),5))
+            # How was your game experience with Coach 2?
+            output_values.append(min(max(int(rate_away_coach), 1),5))
+            # How was your game experience with the crowd members supporting Team 1?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How was your game experience with the crowd members supporting Team 2?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+
+            # Are you a coach of HOME TEAM?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # What was the outcome for your team against AWAY TEAM?	
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # In your opinion, how were the playing conditions (area of play) for the game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Rate the officials’ performance in your game against AWAY Team
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Rate the officials’ control of the game
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Did you or your players have any major disagreements with the officials?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How would you rate your team’s overall performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How do you rate AWAY TEAM overall performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How would you rate your own performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+
+            # Are you a coach of AWAY TEAM?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # What was the outcome for your team against HOME TEAM?	
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # In your opinion, how were the playing conditions (area of play) for the game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Rate the officials’ performance in your game against HOME Team
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Rate the officials’ control of the game
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # Did you or your players have any major disagreements with the officials?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How would you rate your team’s overall performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How do you rate HOME TEAM overall performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+            # How would you rate your own performance in this game?
+            output_values.append(min(max(int(rate_home_crowd), 1),5))
+
+            print ("{}: {} score {}-{} rink {} ref {}.{} ".format(
                 line_number,
-                _sum(ref_values),
-                ref_values,                
+                output_values,                
                 currentline[index_home_score],
                 currentline[index_away_score],
                 currentline[index_rink_number],
                 currentline[index_last_name], (int(currentline[index_official_id]) - 1200) % 9
                 ))
 
-            for v in ref_values:
+            for v in output_values:
                 o.write("{},".format(v))
             o.write('\n')
 
