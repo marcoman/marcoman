@@ -2,11 +2,12 @@ import datetime
 import time
 import json
 import argparse
-from random import randint, random
+from random import randint
 from weakref import ref
+import secrets
 
 def gen_value(low, high):
-    return randint(low, high)
+    return secrets.SystemRandom().randint(low, high)
 
 def _sum(arr):
     sum=0
@@ -169,19 +170,19 @@ with open("inputs.csv", 'r') as refs:
                 rate_playing_area += 1.5
 
             # Correlations
-            rate_home_team += randint(-2,2)
-            rate_away_team += randint(-2,2)
-            rate_performance += randint(-2,2)
-            rate_playing_area += randint(-2,2)
+            rate_home_team += secrets.SystemRandom().randint(-2,2)
+            rate_away_team += secrets.SystemRandom().randint(-2,2)
+            rate_performance += secrets.SystemRandom().randint(-2,2)
+            rate_playing_area += secrets.SystemRandom().randint(-2,2)
             # Facilities 1-5 means a chance to change crowd
-            rate_home_crowd += randint (min (0, int(rate_playing_area-3)),
+            rate_home_crowd += secrets.SystemRandom().randint(min (0, int(rate_playing_area-3)),
                                    max (0, int(rate_playing_area-3)))
-            rate_away_crowd += randint (min (0, int(rate_playing_area-3)),
+            rate_away_crowd += secrets.SystemRandom().randint(min (0, int(rate_playing_area-3)),
                                    max (0, int(rate_playing_area-3)))
 
             # Ref: coach affected
-            rate_home_coach += (random() * 2) * (random() * rate_prepared -3 / 5)
-            rate_away_coach += (random() * 2) * (random() * rate_prepared -3 / 5)
+            rate_home_coach += (secrets.SystemRandom().random() * 2) * (secrets.SystemRandom().random() * rate_prepared -3 / 5)
+            rate_away_coach += (secrets.SystemRandom().random() * 2) * (secrets.SystemRandom().random() * rate_prepared -3 / 5)
 
             # If Home or Visitor, Win, Ref ++, otherwise Lose Ref --, influenced by rink
             #    Rink condition
