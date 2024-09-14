@@ -16,7 +16,7 @@ def prettyPrint (text) :
 
 def listTemplates() :
     print ("list")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password), timeout=60)
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         jdata = json.loads(response.content)
@@ -24,7 +24,7 @@ def listTemplates() :
     
 def listTemplateNames() :
     print ("LIST TEMPLATE NAMES")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password), timeout=60)
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         data = response.json()
@@ -35,7 +35,7 @@ def listTemplateNames() :
 
 def locateSampleTemplate (templateName):
     print ("LOCATE SAMPLE TEMPLATE")
-    response = requests.get(url + "/api/v1/templates?title=" +templateName, auth=HTTPBasicAuth(username, password))
+    response = requests.get(url + "/api/v1/templates?title=" +templateName, auth=HTTPBasicAuth(username, password), timeout=60)
     if (response.ok) :
         # Get the JSON
         data = response.json()
@@ -75,7 +75,7 @@ def createRelease(id) :
     response = requests.post(url + "/api/v1/templates/" + str(id) + "/create",
                              json = myjson,
                              auth = HTTPBasicAuth(username, password),
-                             headers=myHeaders)
+                             headers=myHeaders, timeout=60)
     if (response.ok) :
         print ("create release POST worked")
     else:
@@ -86,14 +86,14 @@ def startRelease (id):
     print ("START RELEASE")
     response = requests.post(url + "/api/v1/templates" + str(id) + "/start",
                              auth=HTTPBasicAuth(username, password),
-                             headers=myHeaders)
+                             headers=myHeaders, timeout=60)
     print ("RESPONSE:", response.ok)
     
 
     
 def findReleaseId (myName):
     print ("FIND RELEASE ", myName)
-    response = requests.get(url + "/api/v1/releases/byTitle?releaseTitle=" + myName, auth=HTTPBasicAuth(username, password))
+    response = requests.get(url + "/api/v1/releases/byTitle?releaseTitle=" + myName, auth=HTTPBasicAuth(username, password), timeout=60)
     if (response.ok) :
         print ("find release worked")
         data = response.json()
@@ -106,7 +106,7 @@ def findReleaseId (myName):
 
 def listReleaseNames() :
     print ("LIST RELEASE NAMES")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password), timeout=60)
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         data = response.json()
