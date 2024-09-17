@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image 
-FROM ubuntu
+FROM ubuntu:kinetic
 
 # Set the working directory 
 WORKDIR /root 
