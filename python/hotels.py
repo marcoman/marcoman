@@ -20,6 +20,7 @@ import sys
 import getopt
 
 from botocore.client import ClientError
+from security import safe_requests
 
 myUrl     = "http://localhost:8090/example/v1/hotels"
 myHeaders = {'Content-type': 'application/json'}
@@ -32,7 +33,7 @@ myJson = {
 
 
 def getcount (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = safe_requests.get(url + "?page=0&size=100")
     if (r.ok):
         jdata = json.loads(r.content)
         return (jdata['numberOfElements'])
@@ -41,7 +42,7 @@ def getcount (url) :
     
 
 def getall (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = safe_requests.get(url + "?page=0&size=100")
     if r.status_code != 200:
         #Something went wrong - notify the user
         raise ApiError ('GET /tasks/ {}'.format(r.status_code))
@@ -50,7 +51,7 @@ def getall (url) :
     return r.json()
 
 def get (url, index) :
-    r = requests.get(url + "/" + str(index))
+    r = safe_requests.get(url + "/" + str(index))
     print ("RESPONSE:", r.ok)
     if (r.ok):
         jdata = json.loads(r.content)
@@ -95,7 +96,7 @@ def prettyprint (text) :
     return
 
 def reportall (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = safe_requests.get(url + "?page=0&size=100")
     if (r.ok):
         jdata = json.loads(r.content)
         for key in jdata :

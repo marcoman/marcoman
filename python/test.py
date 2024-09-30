@@ -1,6 +1,7 @@
 import requests
 import json
 from requests.auth import HTTPBasicAuth
+from security import safe_requests
 
 username = "admin"
 password = "admin"
@@ -16,7 +17,7 @@ def prettyPrint (text) :
 
 def listTemplates() :
     print ("list")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = safe_requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         jdata = json.loads(response.content)
@@ -24,7 +25,7 @@ def listTemplates() :
     
 def listTemplateNames() :
     print ("LIST TEMPLATE NAMES")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = safe_requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         data = response.json()
@@ -35,7 +36,7 @@ def listTemplateNames() :
 
 def locateSampleTemplate (templateName):
     print ("LOCATE SAMPLE TEMPLATE")
-    response = requests.get(url + "/api/v1/templates?title=" +templateName, auth=HTTPBasicAuth(username, password))
+    response = safe_requests.get(url + "/api/v1/templates?title=" +templateName, auth=HTTPBasicAuth(username, password))
     if (response.ok) :
         # Get the JSON
         data = response.json()
@@ -93,7 +94,7 @@ def startRelease (id):
     
 def findReleaseId (myName):
     print ("FIND RELEASE ", myName)
-    response = requests.get(url + "/api/v1/releases/byTitle?releaseTitle=" + myName, auth=HTTPBasicAuth(username, password))
+    response = safe_requests.get(url + "/api/v1/releases/byTitle?releaseTitle=" + myName, auth=HTTPBasicAuth(username, password))
     if (response.ok) :
         print ("find release worked")
         data = response.json()
@@ -106,7 +107,7 @@ def findReleaseId (myName):
 
 def listReleaseNames() :
     print ("LIST RELEASE NAMES")
-    response = requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
+    response = safe_requests.get(url + "/api/v1/templates", auth=HTTPBasicAuth(username, password))
     print ("RESPONSE:", response.ok)
     if (response.ok) :
         data = response.json()
