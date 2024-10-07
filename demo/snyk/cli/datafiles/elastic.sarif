@@ -1,0 +1,2976 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 128
+          },
+          "rules": [
+            {
+              "id": "SNYK-UBUNTU2004-COREUTILS-583876",
+              "shortDescription": {
+                "text": "Low severity - Improper Input Validation vulnerability in coreutils"
+              },
+              "fullDescription": {
+                "text": "(CVE-2016-2781) coreutils@8.30-3ubuntu2"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `coreutils` package and not the `coreutils` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nchroot in GNU coreutils, when used with --userspec, allows local users to escape to the parent session via a crafted TIOCSTI ioctl call, which pushes characters to the terminal&#39;s input buffer.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `coreutils`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-2781](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-2781)\n- [https://security-tracker.debian.org/tracker/CVE-2016-2781](https://security-tracker.debian.org/tracker/CVE-2016-2781)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E)\n- [http://www.openwall.com/lists/oss-security/2016/02/28/2](http://www.openwall.com/lists/oss-security/2016/02/28/2)\n- [http://www.openwall.com/lists/oss-security/2016/02/28/3](http://www.openwall.com/lists/oss-security/2016/02/28/3)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-20",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 6.5,
+                "security-severity": "6.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-CURL-7931917",
+              "shortDescription": {
+                "text": "Medium severity - CVE-2024-8096 vulnerability in curl"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-8096) curl/libcurl4@7.68.0-1ubuntu2.23"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `curl` package and not the `curl` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nWhen curl is told to use the Certificate Status Request TLS extension, often referred to as OCSP stapling, to verify that the server certificate is valid, it might fail to detect some OCSP problems and instead wrongly consider the response as fine.  If the returned status reports another error than &#39;revoked&#39; (like for example &#39;unauthorized&#39;) it is not treated as a bad certficate.\n## Remediation\nUpgrade `Ubuntu:20.04` `curl` to version 7.68.0-1ubuntu2.24 or higher.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-8096](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-8096)\n- [https://curl.se/docs/CVE-2024-8096.html](https://curl.se/docs/CVE-2024-8096.html)\n- [https://curl.se/docs/CVE-2024-8096.json](https://curl.se/docs/CVE-2024-8096.json)\n- [https://hackerone.com/reports/2669852](https://hackerone.com/reports/2669852)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-GLIBC-1297554",
+              "shortDescription": {
+                "text": "Low severity - Use After Free vulnerability in glibc"
+              },
+              "fullDescription": {
+                "text": "(CVE-2021-33574) glibc/libc-bin@2.31-0ubuntu9.16"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `glibc` package and not the `glibc` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nThe mq_notify function in the GNU C Library (aka glibc) versions 2.32 and 2.33 has a use-after-free. It may use the notification thread attributes object (passed through its struct sigevent parameter) after it has been freed by the caller, leading to a denial of service (application crash) or possibly unspecified other impact.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `glibc`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-33574](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2021-33574)\n- [https://security.netapp.com/advisory/ntap-20210629-0005/](https://security.netapp.com/advisory/ntap-20210629-0005/)\n- [https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/)\n- [https://security.gentoo.org/glsa/202107-07](https://security.gentoo.org/glsa/202107-07)\n- [https://sourceware.org/bugzilla/show_bug.cgi?id=27896](https://sourceware.org/bugzilla/show_bug.cgi?id=27896)\n- [https://sourceware.org/bugzilla/show_bug.cgi?id=27896#c1](https://sourceware.org/bugzilla/show_bug.cgi?id=27896#c1)\n- [https://lists.debian.org/debian-lts-announce/2022/10/msg00021.html](https://lists.debian.org/debian-lts-announce/2022/10/msg00021.html)\n- [https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/)\n- [https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/](https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KJYYIMDDYOHTP2PORLABTOHYQYYREZDD/)\n- [https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/](https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RBUUWUGXVILQXVWEOU7N42ICHPJNAEUP/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-416",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 9.8,
+                "security-severity": "9.8"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-GLIBC-2415100",
+              "shortDescription": {
+                "text": "Low severity - Allocation of Resources Without Limits or Throttling vulnerability in glibc"
+              },
+              "fullDescription": {
+                "text": "(CVE-2016-20013) glibc/libc-bin@2.31-0ubuntu9.16"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `glibc` package and not the `glibc` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nsha256crypt and sha512crypt through 0.6 allow attackers to cause a denial of service (CPU consumption) because the algorithm&#39;s runtime is proportional to the square of the length of the password.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `glibc`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-20013](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2016-20013)\n- [https://akkadia.org/drepper/SHA-crypt.txt](https://akkadia.org/drepper/SHA-crypt.txt)\n- [https://pthree.org/2018/05/23/do-not-use-sha256crypt-sha512crypt-theyre-dangerous/](https://pthree.org/2018/05/23/do-not-use-sha256crypt-sha512crypt-theyre-dangerous/)\n- [https://twitter.com/solardiz/status/795601240151457793](https://twitter.com/solardiz/status/795601240151457793)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-770",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-GNUPG2-3035407",
+              "shortDescription": {
+                "text": "Low severity - Out-of-bounds Write vulnerability in gnupg2"
+              },
+              "fullDescription": {
+                "text": "(CVE-2022-3219) gnupg2/gpgv@2.2.19-3ubuntu2.2"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `gnupg2` package and not the `gnupg2` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nGnuPG can be made to spin on a relatively small input by (for example) crafting a public key with thousands of signatures attached, compressed down to just a few KB.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `gnupg2`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-3219](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-3219)\n- [https://access.redhat.com/security/cve/CVE-2022-3219](https://access.redhat.com/security/cve/CVE-2022-3219)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=2127010](https://bugzilla.redhat.com/show_bug.cgi?id=2127010)\n- [https://dev.gnupg.org/D556](https://dev.gnupg.org/D556)\n- [https://dev.gnupg.org/T5993](https://dev.gnupg.org/T5993)\n- [https://marc.info/?l=oss-security&m=165696590211434&w=4](https://marc.info/?l=oss-security&m=165696590211434&w=4)\n- [https://security.netapp.com/advisory/ntap-20230324-0001/](https://security.netapp.com/advisory/ntap-20230324-0001/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-787",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 3.3,
+                "security-severity": "3.3"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-KRB5-579303",
+              "shortDescription": {
+                "text": "Low severity - Integer Overflow or Wraparound vulnerability in krb5"
+              },
+              "fullDescription": {
+                "text": "(CVE-2018-5709) krb5/libkrb5support0@1.17-6ubuntu4.7"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `krb5` package and not the `krb5` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nAn issue was discovered in MIT Kerberos 5 (aka krb5) through 1.16. There is a variable &#34;dbentry-&gt;n_key_data&#34; in kadmin/dbutil/dump.c that can store 16-bit data but unknowingly the developer has assigned a &#34;u4&#34; variable to it, which is for 32-bit data. An attacker can use this vulnerability to affect other artifacts of the database as we know that a Kerberos database dump file contains trusted data.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `krb5`.\n## References\n- [https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5709](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-5709)\n- [https://security-tracker.debian.org/tracker/CVE-2018-5709](https://security-tracker.debian.org/tracker/CVE-2018-5709)\n- [https://github.com/poojamnit/Kerberos-V5-1.16-Vulnerabilities/tree/master/Integer%20Overflow](https://github.com/poojamnit/Kerberos-V5-1.16-Vulnerabilities/tree/master/Integer%20Overflow)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E)\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-5709](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2018-5709)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-190",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-KRB5-6281066",
+              "shortDescription": {
+                "text": "Low severity - CVE-2024-26461 vulnerability in krb5"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-26461) krb5/libkrb5support0@1.17-6ubuntu4.7"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `krb5` package and not the `krb5` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nKerberos 5 (aka krb5) 1.21.2 contains a memory leak vulnerability in /krb5/src/lib/gssapi/krb5/k5sealv3.c.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `krb5`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26461](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26461)\n- [https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_2.md](https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_2.md)\n- [https://security.netapp.com/advisory/ntap-20240415-0011/](https://security.netapp.com/advisory/ntap-20240415-0011/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-KRB5-6281072",
+              "shortDescription": {
+                "text": "Medium severity - CVE-2024-26462 vulnerability in krb5"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-26462) krb5/libkrb5support0@1.17-6ubuntu4.7"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `krb5` package and not the `krb5` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nKerberos 5 (aka krb5) 1.21.2 contains a memory leak vulnerability in /krb5/src/kdc/ndr.c.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `krb5`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26462](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26462)\n- [https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_3.md](https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_3.md)\n- [https://security.netapp.com/advisory/ntap-20240415-0012/](https://security.netapp.com/advisory/ntap-20240415-0012/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-KRB5-6281078",
+              "shortDescription": {
+                "text": "Low severity - CVE-2024-26458 vulnerability in krb5"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-26458) krb5/libkrb5support0@1.17-6ubuntu4.7"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `krb5` package and not the `krb5` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nKerberos 5 (aka krb5) 1.21.2 contains a memory leak in /krb5/src/lib/rpc/pmap_rmt.c.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `krb5`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26458](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-26458)\n- [https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_1.md](https://github.com/LuMingYinDetect/krb5_defects/blob/main/krb5_detect_1.md)\n- [https://security.netapp.com/advisory/ntap-20240415-0010/](https://security.netapp.com/advisory/ntap-20240415-0010/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-LIBGCRYPT20-6411449",
+              "shortDescription": {
+                "text": "Medium severity - Information Exposure vulnerability in libgcrypt20"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-2236) libgcrypt20@1.8.5-5ubuntu1.1"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `libgcrypt20` package and not the `libgcrypt20` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nA timing-based side-channel flaw was found in libgcrypt&#39;s RSA implementation. This issue may allow a remote attacker to initiate a Bleichenbacher-style attack, which can lead to the decryption of RSA ciphertexts.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `libgcrypt20`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-2236](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2024-2236)\n- [https://access.redhat.com/security/cve/CVE-2024-2236](https://access.redhat.com/security/cve/CVE-2024-2236)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=2268268](https://bugzilla.redhat.com/show_bug.cgi?id=2268268)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=2245218](https://bugzilla.redhat.com/show_bug.cgi?id=2245218)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-208",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-NCURSES-6123866",
+              "shortDescription": {
+                "text": "Low severity - CVE-2023-50495 vulnerability in ncurses"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-50495) ncurses/libtinfo6@6.2-0ubuntu2.1"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `ncurses` package and not the `ncurses` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nNCurse v6.4-20230418 was discovered to contain a segmentation fault via the component _nc_wrap_entry().\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `ncurses`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-50495](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-50495)\n- [https://lists.gnu.org/archive/html/bug-ncurses/2023-04/msg00020.html](https://lists.gnu.org/archive/html/bug-ncurses/2023-04/msg00020.html)\n- [https://lists.gnu.org/archive/html/bug-ncurses/2023-04/msg00029.html](https://lists.gnu.org/archive/html/bug-ncurses/2023-04/msg00029.html)\n- [https://security.netapp.com/advisory/ntap-20240119-0008/](https://security.netapp.com/advisory/ntap-20240119-0008/)\n- [https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LU4MYMKFEZQ5VSCVLRIZGDQOUW3T44GT/](https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/LU4MYMKFEZQ5VSCVLRIZGDQOUW3T44GT/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 6.5,
+                "security-severity": "6.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-NCURSES-6253014",
+              "shortDescription": {
+                "text": "Low severity - CVE-2023-45918 vulnerability in ncurses"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-45918) ncurses/libtinfo6@6.2-0ubuntu2.1"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `ncurses` package and not the `ncurses` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nncurses 6.4-20230610 has a NULL pointer dereference in tgetstr in tinfo/lib_termcap.c.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `ncurses`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-45918](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-45918)\n- [https://lists.gnu.org/archive/html/bug-ncurses/2023-06/msg00005.html](https://lists.gnu.org/archive/html/bug-ncurses/2023-06/msg00005.html)\n- [https://security.netapp.com/advisory/ntap-20240315-0006/](https://security.netapp.com/advisory/ntap-20240315-0006/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": null,
+                "security-severity": "null"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-PCRE2-5787132",
+              "shortDescription": {
+                "text": "Low severity - Integer Overflow or Wraparound vulnerability in pcre2"
+              },
+              "fullDescription": {
+                "text": "(CVE-2022-41409) pcre2/libpcre2-8-0@10.34-7ubuntu0.1"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `pcre2` package and not the `pcre2` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nInteger overflow vulnerability in pcre2test before 10.41 allows attackers to cause a denial of service or other unspecified impacts via negative input.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `pcre2`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-41409](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2022-41409)\n- [https://github.com/PCRE2Project/pcre2/commit/94e1c001761373b7d9450768aa15d04c25547a35](https://github.com/PCRE2Project/pcre2/commit/94e1c001761373b7d9450768aa15d04c25547a35)\n- [https://github.com/PCRE2Project/pcre2/issues/141](https://github.com/PCRE2Project/pcre2/issues/141)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-190",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-PCRE3-580031",
+              "shortDescription": {
+                "text": "Low severity - Uncontrolled Recursion vulnerability in pcre3"
+              },
+              "fullDescription": {
+                "text": "(CVE-2017-11164) pcre3/libpcre3@2:8.39-12ubuntu0.1"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `pcre3` package and not the `pcre3` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nIn PCRE 8.41, the OP_KETRMAX feature in the match function in pcre_exec.c allows stack exhaustion (uncontrolled recursion) when processing a crafted regular expression.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `pcre3`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2017-11164](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2017-11164)\n- [https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11164](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11164)\n- [https://security-tracker.debian.org/tracker/CVE-2017-11164](https://security-tracker.debian.org/tracker/CVE-2017-11164)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E)\n- [http://openwall.com/lists/oss-security/2017/07/11/3](http://openwall.com/lists/oss-security/2017/07/11/3)\n- [http://www.securityfocus.com/bid/99575](http://www.securityfocus.com/bid/99575)\n- [http://www.openwall.com/lists/oss-security/2023/04/11/1](http://www.openwall.com/lists/oss-security/2023/04/11/1)\n- [http://www.openwall.com/lists/oss-security/2023/04/12/1](http://www.openwall.com/lists/oss-security/2023/04/12/1)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-674",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-SHADOW-5425687",
+              "shortDescription": {
+                "text": "Low severity - Arbitrary Code Injection vulnerability in shadow"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-29383) shadow/passwd@1:4.8.1-1ubuntu5.20.04.5"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `shadow` package and not the `shadow` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nIn Shadow 4.13, it is possible to inject control characters into fields provided to the SUID program chfn (change finger). Although it is not possible to exploit this directly (e.g., adding a new user fails because \\n is in the block list), it is possible to misrepresent the /etc/passwd file when viewed. Use of \\r manipulations and Unicode characters to work around blocking of the : character make it possible to give the impression that a new user has been added. In other words, an adversary may be able to convince a system administrator to take the system offline (an indirect, social-engineered denial of service) by demonstrating that &#34;cat /etc/passwd&#34; shows a rogue user account.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `shadow`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-29383](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-29383)\n- [https://github.com/shadow-maint/shadow/commit/e5905c4b84d4fb90aefcd96ee618411ebfac663d](https://github.com/shadow-maint/shadow/commit/e5905c4b84d4fb90aefcd96ee618411ebfac663d)\n- [https://github.com/shadow-maint/shadow/pull/687](https://github.com/shadow-maint/shadow/pull/687)\n- [https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/cve-2023-29383-abusing-linux-chfn-to-misrepresent-etc-passwd/](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/cve-2023-29383-abusing-linux-chfn-to-misrepresent-etc-passwd/)\n- [https://www.trustwave.com/en-us/resources/security-resources/security-advisories/?fid=31797](https://www.trustwave.com/en-us/resources/security-resources/security-advisories/?fid=31797)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-74",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 3.3,
+                "security-severity": "3.3"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-SHADOW-577863",
+              "shortDescription": {
+                "text": "Low severity - Time-of-check Time-of-use (TOCTOU) vulnerability in shadow"
+              },
+              "fullDescription": {
+                "text": "(CVE-2013-4235) shadow/passwd@1:4.8.1-1ubuntu5.20.04.5"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `shadow` package and not the `shadow` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nshadow: TOCTOU (time-of-check time-of-use) race condition when copying and removing directory trees\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `shadow`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4235](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4235)\n- [https://security-tracker.debian.org/tracker/CVE-2013-4235](https://security-tracker.debian.org/tracker/CVE-2013-4235)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2013-4235](https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2013-4235)\n- [https://access.redhat.com/security/cve/cve-2013-4235](https://access.redhat.com/security/cve/cve-2013-4235)\n- [https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E](https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772%40%3Cdev.mina.apache.org%3E)\n- [https://security.gentoo.org/glsa/202210-26](https://security.gentoo.org/glsa/202210-26)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-367",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 4.7,
+                "security-severity": "4.7"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-SYSTEMD-3339226",
+              "shortDescription": {
+                "text": "Low severity - CVE-2023-26604 vulnerability in systemd"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-26604) systemd/libsystemd0@245.4-4ubuntu3.23"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `systemd` package and not the `systemd` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nsystemd before 247 does not adequately block local privilege escalation for some Sudo configurations, e.g., plausible sudoers files in which the &#34;systemctl status&#34; command may be executed. Specifically, systemd does not set LESSSECURE to 1, and thus other programs may be launched from the less program. This presents a substantial security risk when running systemctl from Sudo, because less executes as root when the terminal size is too small to show the complete systemctl output.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `systemd`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-26604](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-26604)\n- [https://blog.compass-security.com/2012/10/dangerous-sudoers-entries-part-2-insecure-functionality/](https://blog.compass-security.com/2012/10/dangerous-sudoers-entries-part-2-insecure-functionality/)\n- [https://github.com/systemd/systemd/blob/main/NEWS#L4335-L4340](https://github.com/systemd/systemd/blob/main/NEWS#L4335-L4340)\n- [https://lists.debian.org/debian-lts-announce/2023/03/msg00032.html](https://lists.debian.org/debian-lts-announce/2023/03/msg00032.html)\n- [https://medium.com/@zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7](https://medium.com/@zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7)\n- [https://security.netapp.com/advisory/ntap-20230505-0009/](https://security.netapp.com/advisory/ntap-20230505-0009/)\n- [http://packetstormsecurity.com/files/174130/systemd-246-Local-Root-Privilege-Escalation.html](http://packetstormsecurity.com/files/174130/systemd-246-Local-Root-Privilege-Escalation.html)\n- [https://medium.com/%40zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7](https://medium.com/%40zenmoviefornotification/saidov-maxim-cve-2023-26604-c1232a526ba7)\n- [https://www.exploit-db.com/exploits/51674](https://www.exploit-db.com/exploits/51674)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 7.8,
+                "security-severity": "7.8"
+              }
+            },
+            {
+              "id": "SNYK-UBUNTU2004-SYSTEMD-6137854",
+              "shortDescription": {
+                "text": "Low severity - CVE-2023-7008 vulnerability in systemd"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-7008) systemd/libsystemd0@245.4-4ubuntu3.23"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## NVD Description\n**_Note:_** _Versions mentioned in the description apply only to the upstream `systemd` package and not the `systemd` package as distributed by `Ubuntu`._\n_See `How to fix?` for `Ubuntu:20.04` relevant fixed versions and status._\n\nA vulnerability was found in systemd-resolved. This issue may allow systemd-resolved to accept records of DNSSEC-signed domains even when they have no signature, allowing man-in-the-middles (or the upstream DNS resolver) to manipulate records.\n## Remediation\nThere is no fixed version for `Ubuntu:20.04` `systemd`.\n## References\n- [http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-7008](http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-7008)\n- [https://access.redhat.com/security/cve/CVE-2023-7008](https://access.redhat.com/security/cve/CVE-2023-7008)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=2222261](https://bugzilla.redhat.com/show_bug.cgi?id=2222261)\n- [https://bugzilla.redhat.com/show_bug.cgi?id=2222672](https://bugzilla.redhat.com/show_bug.cgi?id=2222672)\n- [https://github.com/systemd/systemd/issues/25676](https://github.com/systemd/systemd/issues/25676)\n- [https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QHNBXGKJWISJETTTDTZKTBFIBJUOSLKL/](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QHNBXGKJWISJETTTDTZKTBFIBJUOSLKL/)\n- [https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4GMDEG5PKONWNHOEYSUDRT6JEOISRMN2/](https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4GMDEG5PKONWNHOEYSUDRT6JEOISRMN2/)\n- [https://access.redhat.com/errata/RHSA-2024:2463](https://access.redhat.com/errata/RHSA-2024:2463)\n- [https://access.redhat.com/errata/RHSA-2024:3203](https://access.redhat.com/errata/RHSA-2024:3203)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "deb"
+                ],
+                "cvssv3_baseScore": 5.9,
+                "security-severity": "5.9"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-UBUNTU2004-COREUTILS-583876",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable coreutils package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "coreutils@8.30-3ubuntu2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-CURL-7931917",
+          "level": "warning",
+          "message": {
+            "text": "This file introduces a vulnerable curl package with a medium severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "curl@7.68.0-1ubuntu2.23"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-GLIBC-1297554",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable glibc package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "glibc@2.31-0ubuntu9.16"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-GLIBC-2415100",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable glibc package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "glibc@2.31-0ubuntu9.16"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-GNUPG2-3035407",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable gnupg2 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "gnupg2@2.2.19-3ubuntu2.2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-KRB5-579303",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable krb5 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "krb5@1.17-6ubuntu4.7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-KRB5-6281066",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable krb5 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "krb5@1.17-6ubuntu4.7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-KRB5-6281072",
+          "level": "warning",
+          "message": {
+            "text": "This file introduces a vulnerable krb5 package with a medium severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "krb5@1.17-6ubuntu4.7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-KRB5-6281078",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable krb5 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "krb5@1.17-6ubuntu4.7"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-LIBGCRYPT20-6411449",
+          "level": "warning",
+          "message": {
+            "text": "This file introduces a vulnerable libgcrypt20 package with a medium severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "libgcrypt20@1.8.5-5ubuntu1.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-NCURSES-6123866",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable ncurses package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ncurses@6.2-0ubuntu2.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-NCURSES-6253014",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable ncurses package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ncurses@6.2-0ubuntu2.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-PCRE2-5787132",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable pcre2 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "pcre2@10.34-7ubuntu0.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-PCRE3-580031",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable pcre3 package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "pcre3@2:8.39-12ubuntu0.1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-SHADOW-5425687",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable shadow package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "shadow@1:4.8.1-1ubuntu5.20.04.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-SHADOW-577863",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable shadow package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "shadow@1:4.8.1-1ubuntu5.20.04.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-SYSTEMD-3339226",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable systemd package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "systemd@245.4-4ubuntu3.23"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-UBUNTU2004-SYSTEMD-6137854",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable systemd package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker.elastic.co/elasticsearch/elasticsearch_8.15.1/elasticsearch/elasticsearch"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "systemd@245.4-4ubuntu3.23"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 8
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 45
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 13
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-ORGBOUNCYCASTLE-7650171",
+              "shortDescription": {
+                "text": "Medium severity - Allocation of Resources Without Limits or Throttling vulnerability in org.bouncycastle:bc-fips"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-29857) org.bouncycastle:bc-fips@1.0.2.4"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling in the `solveQuadraticEquation()` function used for certificate verification in `ECCurve.java`. Passing a large f2m parameter can cause excessive CPU consumption.\n## Remediation\nUpgrade `org.bouncycastle:bc-fips` to version 1.0.2.5 or higher.\n## References\n- [GitHub Commit](https://github.com/bcgit/bc-csharp/commit/45c6b993945f01076e386cb59988b1836a329999)\n- [GitHub Commit](https://github.com/bcgit/bc-java/commit/efc498ca4caa340ac2fe11f2efee06c1a294501f)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-770",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 5.3,
+                "security-severity": "5.3"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-ORGBOUNCYCASTLE-7650171",
+          "level": "warning",
+          "message": {
+            "text": "This file introduces a vulnerable org.bouncycastle:bc-fips package with a medium severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/lib/tools/plugin-cli"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "org.bouncycastle:bc-fips@1.0.2.4"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to org.bouncycastle:bc-fips@1.0.2.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/lib/tools/plugin-cli"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "org.bouncycastle:bc-fips@1.0.2.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 3
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 115
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-ORGAPACHELOGGINGLOG4J-567761",
+              "shortDescription": {
+                "text": "Low severity - Man-in-the-Middle (MitM) vulnerability in org.apache.logging.log4j:log4j-core"
+              },
+              "fullDescription": {
+                "text": "(CVE-2020-9488) org.apache.logging.log4j:log4j-core@2.12.4"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[org.apache.logging.log4j:log4j-core](http://logging.apache.org/log4j/1.2/) is a logging library for Java.\n\nAffected versions of this package are vulnerable to Man-in-the-Middle (MitM). Improper validation of certificate with host mismatch in Apache Log4j SMTP appender. This could allow an SMTPS connection to be intercepted by a man-in-the-middle attack which could leak any log messages sent through that appender.\n## Remediation\nUpgrade `org.apache.logging.log4j:log4j-core` to version 2.13.2 or higher.\n## References\n- [Atlassian Patch](https://confluence.atlassian.com/jirakb/list-of-security-vulnerabilities-addressed-in-atlassian-log4j1-1141965553.html)\n- [GitHub Commit](https://github.com/apache/logging-log4j2/commit/6851b5083ef9610bae320bf07e1f24d2aa08851b)\n- [Jira Issue](https://issues.apache.org/jira/browse/LOG4J2-2819)\n- [Reload4j Fix Commit](https://github.com/qos-ch/reload4j/commit/90bc7826c206c256ee9ec6b51318cc1865cc19e9)\n"
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-297",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 3.7,
+                "security-severity": "3.7"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-ORGAPACHELOGGINGLOG4J-567761",
+          "level": "note",
+          "message": {
+            "text": "This file introduces a vulnerable org.apache.logging.log4j:log4j-core package with a low severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/apm"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "org.apache.logging.log4j:log4j-core@2.12.4"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to co.elastic.apm:elastic-apm-agent@1.44.0"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/apm"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "co.elastic.apm:elastic-apm-agent@1.44.0"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 34
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 2
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 5
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 7
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 6
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 6
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 8
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 39
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 30
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+              "shortDescription": {
+                "text": "High severity - Stack-based Buffer Overflow vulnerability in com.google.protobuf:protobuf-java"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-7254) com.google.protobuf:protobuf-java@3.21.9"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[com.google.protobuf:protobuf-java](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java) is a Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.\n\nAffected versions of this package are vulnerable to Stack-based Buffer Overflow via the parsing of nested groups or series of `SGROUP` tags as unknown fields with `DiscardUnknownFieldsParser` or Java Protobuf Lite parser, or against Protobuf map fields. An attacker can cause infinite recursion by sending malicious Protocol Buffer data.\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `com.google.protobuf:protobuf-java` to version 3.25.5, 4.27.5, 4.28.2 or higher.\n## References\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/ac9fb5b4c71b0dd80985b27684e265d1f03abf46)\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/cc8b3483a5584b3301e3d43d17eb59704857ffaa)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-121",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 8.7,
+                "security-severity": "8.7"
+              }
+            },
+            {
+              "id": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055228",
+              "shortDescription": {
+                "text": "High severity - Stack-based Buffer Overflow vulnerability in com.google.protobuf:protobuf-java-util"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-7254) com.google.protobuf:protobuf-java-util@3.21.9"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n\nAffected versions of this package are vulnerable to Stack-based Buffer Overflow via the parsing of nested groups or series of `SGROUP` tags as unknown fields with `DiscardUnknownFieldsParser` or Java Protobuf Lite parser, or against Protobuf map fields. An attacker can cause infinite recursion by sending malicious Protocol Buffer data.\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `com.google.protobuf:protobuf-java-util` to version 3.25.5, 4.27.5, 4.28.2 or higher.\n## References\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/ac9fb5b4c71b0dd80985b27684e265d1f03abf46)\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/cc8b3483a5584b3301e3d43d17eb59704857ffaa)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-121",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 8.7,
+                "security-severity": "8.7"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.google.protobuf:protobuf-java package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/repository-gcs"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.google.protobuf:protobuf-java@3.21.9"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.google.protobuf:protobuf-java@3.25.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/repository-gcs"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.google.protobuf:protobuf-java@3.25.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055228",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.google.protobuf:protobuf-java-util package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/repository-gcs"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.google.protobuf:protobuf-java-util@3.21.9"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.google.protobuf:protobuf-java-util@3.25.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/repository-gcs"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.google.protobuf:protobuf-java-util@3.25.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 15
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 5
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 11
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 4
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+              "shortDescription": {
+                "text": "High severity - Stack-based Buffer Overflow vulnerability in com.google.protobuf:protobuf-java"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-7254) com.google.protobuf:protobuf-java@3.21.9"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[com.google.protobuf:protobuf-java](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java) is a Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.\n\nAffected versions of this package are vulnerable to Stack-based Buffer Overflow via the parsing of nested groups or series of `SGROUP` tags as unknown fields with `DiscardUnknownFieldsParser` or Java Protobuf Lite parser, or against Protobuf map fields. An attacker can cause infinite recursion by sending malicious Protocol Buffer data.\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `com.google.protobuf:protobuf-java` to version 3.25.5, 4.27.5, 4.28.2 or higher.\n## References\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/ac9fb5b4c71b0dd80985b27684e265d1f03abf46)\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/cc8b3483a5584b3301e3d43d17eb59704857ffaa)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-121",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 8.7,
+                "security-severity": "8.7"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.google.protobuf:protobuf-java package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/vector-tile"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.google.protobuf:protobuf-java@3.21.9"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.google.protobuf:protobuf-java@3.25.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/vector-tile"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.google.protobuf:protobuf-java@3.25.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 11
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 8
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 13
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 2
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 25
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 27
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+              "shortDescription": {
+                "text": "High severity - Stack-based Buffer Overflow vulnerability in com.google.protobuf:protobuf-java"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-7254) com.google.protobuf:protobuf-java@3.21.9"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[com.google.protobuf:protobuf-java](https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java) is a Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data.\n\nAffected versions of this package are vulnerable to Stack-based Buffer Overflow via the parsing of nested groups or series of `SGROUP` tags as unknown fields with `DiscardUnknownFieldsParser` or Java Protobuf Lite parser, or against Protobuf map fields. An attacker can cause infinite recursion by sending malicious Protocol Buffer data.\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `com.google.protobuf:protobuf-java` to version 3.25.5, 4.27.5, 4.28.2 or higher.\n## References\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/ac9fb5b4c71b0dd80985b27684e265d1f03abf46)\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/cc8b3483a5584b3301e3d43d17eb59704857ffaa)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-121",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 8.7,
+                "security-severity": "8.7"
+              }
+            },
+            {
+              "id": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055228",
+              "shortDescription": {
+                "text": "High severity - Stack-based Buffer Overflow vulnerability in com.google.protobuf:protobuf-java-util"
+              },
+              "fullDescription": {
+                "text": "(CVE-2024-7254) com.google.protobuf:protobuf-java-util@3.21.9"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n\nAffected versions of this package are vulnerable to Stack-based Buffer Overflow via the parsing of nested groups or series of `SGROUP` tags as unknown fields with `DiscardUnknownFieldsParser` or Java Protobuf Lite parser, or against Protobuf map fields. An attacker can cause infinite recursion by sending malicious Protocol Buffer data.\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `com.google.protobuf:protobuf-java-util` to version 3.25.5, 4.27.5, 4.28.2 or higher.\n## References\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/ac9fb5b4c71b0dd80985b27684e265d1f03abf46)\n- [GitHub Commit](https://github.com/protocolbuffers/protobuf/commit/cc8b3483a5584b3301e3d43d17eb59704857ffaa)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-121",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 8.7,
+                "security-severity": "8.7"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055227",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.google.protobuf:protobuf-java package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/x-pack-inference"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.google.protobuf:protobuf-java@3.21.9"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.google.protobuf:protobuf-java@3.25.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/x-pack-inference"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.google.protobuf:protobuf-java@3.25.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-JAVA-COMGOOGLEPROTOBUF-8055228",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.google.protobuf:protobuf-java-util package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/x-pack-inference"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.google.protobuf:protobuf-java-util@3.21.9"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.google.protobuf:protobuf-java-util@3.25.5"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/x-pack-inference"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.google.protobuf:protobuf-java-util@3.25.5"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 6
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 3
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 1
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 47
+          },
+          "rules": [
+            {
+              "id": "SNYK-JAVA-COMNIMBUSDS-6247633",
+              "shortDescription": {
+                "text": "High severity - Allocation of Resources Without Limits or Throttling vulnerability in com.nimbusds:nimbus-jose-jwt"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-52428) com.nimbusds:nimbus-jose-jwt@9.23"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[com.nimbusds:nimbus-jose-jwt](https://connect2id.com/products/nimbus-jose-jwt) is a library for JSON Web Tokens (JWT)\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling due to a large JWE `p2c` header value (AKA iteration count) for the `PasswordBasedDecrypter` (PBKDF2) class. An attacker can cause resource consumption by specifying an excessively large iteration count.\n## Remediation\nUpgrade `com.nimbusds:nimbus-jose-jwt` to version 9.37.2 or higher.\n## References\n- [Bitbucket Commit](https://bitbucket.org/connect2id/nimbus-jose-jwt/commits/3b3b77e)\n- [Bitbucket Issue](https://bitbucket.org/connect2id/nimbus-jose-jwt/issues/526/)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-770",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            },
+            {
+              "id": "SNYK-JAVA-NETMINIDEV-3369748",
+              "shortDescription": {
+                "text": "High severity - Denial of Service (DoS) vulnerability in net.minidev:json-smart"
+              },
+              "fullDescription": {
+                "text": "(CVE-2023-1370) net.minidev:json-smart@2.4.8"
+              },
+              "help": {
+                "text": "",
+                "markdown": "## Overview\n[net.minidev:json-smart](https://github.com/netplex/json-smart-v1) is a Java JSON parser.\n\nAffected versions of this package are vulnerable to Denial of Service (DoS) due to a `StackOverflowError` when parsing a deeply nested JSON array or object.\r\n\r\n**NOTE:** Although this vulnerability was fixed in version 2.4.9 the maintainer recommends upgrading to 2.4.10, due to a remaining bug.\n## PoC\n```java\r\nStringBuilder s = new StringBuilder();\r\nfor (int i = 0; i < 10000 ; i++) {\r\n  s.append(\"{\\\"a\\\":\");\r\n}\r\ns.append(\"1\");\r\nfor (int i = 0; i < 10000 ; i++) {\r\n  s.append(\"}\");\r\n}\r\nJSONParser p = new JSONParser(JSONParser.MODE_JSON_SIMPLE);\r\np.parse(s.toString());\r\n```\n\n## Details\n\nDenial of Service (DoS) describes a family of attacks, all aimed at making a system inaccessible to its intended and legitimate users.\n\nUnlike other vulnerabilities, DoS attacks usually do not aim at breaching security. Rather, they are focused on making websites and services unavailable to genuine users resulting in downtime.\n\nOne popular Denial of Service vulnerability is DDoS (a Distributed Denial of Service), an attack that attempts to clog network pipes to the system by generating a large volume of traffic from many machines.\n\nWhen it comes to open source libraries, DoS vulnerabilities allow attackers to trigger such a crash or crippling of the service by using a flaw either in the application code or from the use of open source libraries.\n\nTwo common types of DoS vulnerabilities:\n\n* High CPU/Memory Consumption- An attacker sending crafted requests that could cause the system to take a disproportionate amount of time to process. For example, [commons-fileupload:commons-fileupload](https://security.snyk.io/vuln/SNYK-JAVA-COMMONSFILEUPLOAD-30082).\n\n* Crash - An attacker sending crafted requests that could cause the system to crash. For Example,  [npm `ws` package](https://snyk.io/vuln/npm:ws:20171108)\n\n## Remediation\nUpgrade `net.minidev:json-smart` to version 2.4.9 or higher.\n## References\n- [GitHub Commit](https://github.com/netplex/json-smart-v2/commit/5b3205d051952d3100aa0db1535f6ba6226bd87a)\n- [GitHub Commit](https://github.com/netplex/json-smart-v2/commit/e2791ae506a57491bc856b439d706c81e45adcf8)\n- [GitHub Issue](https://github.com/netplex/json-smart-v2/issues/137)\n"
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-400",
+                  "maven"
+                ],
+                "cvssv3_baseScore": 7.5,
+                "security-severity": "7.5"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "SNYK-JAVA-COMNIMBUSDS-6247633",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable com.nimbusds:nimbus-jose-jwt package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/x-pack-security"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "com.nimbusds:nimbus-jose-jwt@9.23"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.nimbusds:nimbus-jose-jwt@9.37.2"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/x-pack-security"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.nimbusds:nimbus-jose-jwt@9.37.2"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "SNYK-JAVA-NETMINIDEV-3369748",
+          "level": "error",
+          "message": {
+            "text": "This file introduces a vulnerable net.minidev:json-smart package with a high severity vulnerability."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/usr/share/elasticsearch/modules/x-pack-security"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "net.minidev:json-smart@2.4.8"
+                }
+              ]
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "Upgrade to com.nimbusds:nimbus-jose-jwt@9.23"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "/usr/share/elasticsearch/modules/x-pack-security"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "startLine": 1
+                      },
+                      "insertedContent": {
+                        "text": "com.nimbusds:nimbus-jose-jwt@9.23"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 2
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 2
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 5
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    },
+    {
+      "tool": {
+        "driver": {
+          "name": "Snyk Container",
+          "semanticVersion": "1.1293.1",
+          "version": "1.1293.1",
+          "informationUri": "https://docs.snyk.io/",
+          "properties": {
+            "artifactsScanned": 0
+          },
+          "rules": []
+        }
+      },
+      "results": []
+    }
+  ]
+}
