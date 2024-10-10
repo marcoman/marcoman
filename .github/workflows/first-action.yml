@@ -1,0 +1,24 @@
+## All workflows need a name
+name: First Action
+
+## Define the time when this workflow runs
+## Autocomplete works nicely here.  workflow_dispatch let's us trigger by hand.
+## I am noticing that auto-complete puts the following in brackets, suggesting to me a list notation.
+on: [workflow_dispatch]
+
+jobs:
+  job1:
+    # What pleases me the most about the next line is the constant affirmation that
+    # "if it didn't run on Linux, it didn't run."  :)
+    runs-on: ubuntu-latest
+      steps:
+        - name: Say Hello
+          run: echo "Hello, world!"
+
+        - name: Say Hello Multiple
+          run: |
+            echo "first line"
+            echo "second line"
+            ls
+            whoami
+            df -h
