@@ -8,6 +8,9 @@ jobs:
   job1:
     # For fun, I'm naming a specific ubuntu. Probably a best practice to be specific.
     runs-on: ubuntu-22.04
+    defaults:
+        run:
+            working-directory: demo/github/actions/02-starting-project
     steps:
       - name: Get code
         # Ha, I was right.  We want to be specific with the versions.
