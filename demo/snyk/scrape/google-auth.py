@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from seleniumwire import webdriver
 
 driver = webdriver.Chrome()
-global header_token
 
 # Define the scopes
 CLIENT_SECRETS_FILE='/home/marco/Downloads/client-secret.json'
