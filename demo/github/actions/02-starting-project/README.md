@@ -55,3 +55,5 @@ Test Files  1 passed (1)
 
 We should next expect our GHA to run the code inside of the next actions example.
 
+## Running `npm test` in GHA
+
