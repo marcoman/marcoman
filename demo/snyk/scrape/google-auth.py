@@ -18,7 +18,7 @@ TOKEN_FILE='/home/marco/Downloads/token.json'
 SCOPES = ['https://www.googleapis.com/auth/userinfo.email']
 
 SNYK_ORG_ID = os.environ.get("SNYK_ORG_ID")
-SNYK_URL = f'https://app.snyk.io/org/mr.marco.a.morales/projects'
+SNYK_URL = 'https://app.snyk.io/org/mr.marco.a.morales/projects'
 # SNYK_URL = f'https://app.snyk.io/org/{SNYK_ORG_ID}/projects"'
 
 headers = {}

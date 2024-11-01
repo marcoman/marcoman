@@ -10,7 +10,7 @@ driver = webdriver.Chrome()
 
 SNYK_ORG_ID = os.environ.get("SNYK_ORG_ID")
 SNYK_AUTH_TOKEN = os.environ.get("SNYK_AUTH_TOKEN")
-SNYK_URL = f'file:///snyk-projects.html'
+SNYK_URL = 'file:///snyk-projects.html'
 
 driver.get(SNYK_URL)
 page_source = driver.page_source

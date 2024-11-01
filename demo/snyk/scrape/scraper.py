@@ -19,7 +19,7 @@ session.headers.update({'Authorization': f'Bearer {credentials.token}'})
 
 SNYK_ORG_ID = os.environ.get("SNYK_ORG_ID")
 # SNYK_URL = f'https://app.snyk.io/org/{SNYK_ORG_ID}/projects"'
-SNYK_URL = f'https://app.snyk.io/org/mr.marco.a.morales/projects'
+SNYK_URL = 'https://app.snyk.io/org/mr.marco.a.morales/projects'
 
 
 response = session.get(SNYK_URL)
