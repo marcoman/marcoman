@@ -32,7 +32,7 @@ myJson = {
 
 
 def getcount (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = requests.get(url + "?page=0&size=100", timeout=60)
     if (r.ok):
         jdata = json.loads(r.content)
         return (jdata['numberOfElements'])
@@ -41,7 +41,7 @@ def getcount (url) :
     
 
 def getall (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = requests.get(url + "?page=0&size=100", timeout=60)
     if r.status_code != 200:
         #Something went wrong - notify the user
         raise ApiError ('GET /tasks/ {}'.format(r.status_code))
@@ -50,7 +50,7 @@ def getall (url) :
     return r.json()
 
 def get (url, index) :
-    r = requests.get(url + "/" + str(index))
+    r = requests.get(url + "/" + str(index), timeout=60)
     print ("RESPONSE:", r.ok)
     if (r.ok):
         jdata = json.loads(r.content)
@@ -60,7 +60,7 @@ def get (url, index) :
     return r.json()
 
 def post (url, json, data) :
-    r = requests.post(url, json=json, headers=myHeaders)
+    r = requests.post(url, json=json, headers=myHeaders, timeout=60)
     if (r.ok) :
         print ("POSTED okay")
     else :
@@ -75,7 +75,7 @@ def post (url, city="Chicago", description="No description provided", name="simp
         "name": name,
         "rating": rating
         }
-    r = requests.post(url, json=myj, headers=myHeaders)
+    r = requests.post(url, json=myj, headers=myHeaders, timeout=60)
     if (r.ok) :
         print ("POST okay")
     else :
@@ -83,7 +83,7 @@ def post (url, city="Chicago", description="No description provided", name="simp
     return r.text
 
 def delete (url, id) :
-    r = requests.delete(url + "/" + str(id))
+    r = requests.delete(url + "/" + str(id), timeout=60)
     if (r.ok) :
         print ("RESPONSE:", r.ok)
     else :
@@ -95,7 +95,7 @@ def prettyprint (text) :
     return
 
 def reportall (url) :
-    r = requests.get(url + "?page=0&size=100")
+    r = requests.get(url + "?page=0&size=100", timeout=60)
     if (r.ok):
         jdata = json.loads(r.content)
         for key in jdata :
@@ -112,7 +112,7 @@ def put (url, id, city, description, name, rating) :
                "name" : name,
                "rating" : rating
                }
-    r = requests.put(url + "/" + str (id), data=json.dumps(myjson), headers=myHeaders)
+    r = requests.put(url + "/" + str (id), data=json.dumps(myjson), headers=myHeaders, timeout=60)
     if (r.ok) :
         print ("it worked!")
     else :
