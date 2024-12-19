@@ -21,7 +21,7 @@ def printbuckets () :
     
 
 #response = requests.post(url, data=data)
-r = requests.get(url)
+r = requests.get(url, timeout=60)
 print ("Response is " , r.ok)
 print (r.json())
 if (r.ok):

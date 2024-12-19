@@ -10,7 +10,7 @@ def prettyprint (text) :
     print (json.dumps(text, sort_keys=True, indent=4, separators=(',', ':')))
     return
 
-r = requests.get(url)
+r = requests.get(url, timeout=60)
 print ("Response is " , r.ok)
 print (r.json())
 if (r.ok):
@@ -27,7 +27,7 @@ myj = {
   "title": "SAMPLE TITLE",
   "completed": "false"
 }
-r = requests.post(url, json=myj, headers=myHeaders)
+r = requests.post(url, json=myj, headers=myHeaders, timeout=60)
 if (r.ok) :
     jdata = json.loads(r.content)
     print (jdata)
